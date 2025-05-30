@@ -1,0 +1,17 @@
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\bin\Debug\net8.0\SRP.Domain.deps.json
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\bin\Debug\net8.0\SRP.Domain.dll
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\bin\Debug\net8.0\SRP.Domain.pdb
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\bin\Debug\net8.0\Core.CrossCuttingConcerns.dll
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\bin\Debug\net8.0\Core.Persistence.dll
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\bin\Debug\net8.0\Core.Persistence.pdb
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\bin\Debug\net8.0\Core.CrossCuttingConcerns.pdb
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\obj\Debug\net8.0\SRP.Domain.csproj.AssemblyReference.cache
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\obj\Debug\net8.0\SRP.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\obj\Debug\net8.0\SRP.Domain.AssemblyInfoInputs.cache
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\obj\Debug\net8.0\SRP.Domain.AssemblyInfo.cs
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\obj\Debug\net8.0\SRP.Domain.csproj.CoreCompileInputs.cache
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\obj\Debug\net8.0\SRP.Domain.csproj.Up2Date
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\obj\Debug\net8.0\SRP.Domain.dll
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\obj\Debug\net8.0\refint\SRP.Domain.dll
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\obj\Debug\net8.0\SRP.Domain.pdb
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Domain\obj\Debug\net8.0\ref\SRP.Domain.dll

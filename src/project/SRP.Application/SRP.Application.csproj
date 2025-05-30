@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="Constants\"/>
+        <Folder Include="Features\Abouts\Rules\"/>
+        <Folder Include="Features\Bookings\Commands\Add\"/>
+        <Folder Include="Features\Bookings\Commands\Delete\"/>
+        <Folder Include="Features\Bookings\Commands\Update\"/>
+        <Folder Include="Features\Bookings\Profiles\"/>
+        <Folder Include="Features\Bookings\Queries\GetAll\"/>
+        <Folder Include="Features\Bookings\Queries\GetById\"/>
+        <Folder Include="Features\Bookings\Rules\"/>
+        <Folder Include="Features\Categories\Commands\Add\"/>
+        <Folder Include="Features\Categories\Commands\Delete\"/>
+        <Folder Include="Features\Categories\Commands\Update\"/>
+        <Folder Include="Features\Categories\Profiles\"/>
+        <Folder Include="Features\Categories\Queries\GetAll\"/>
+        <Folder Include="Features\Categories\Queries\GetById\"/>
+        <Folder Include="Features\Categories\Rules\"/>
+        <Folder Include="Features\Contacts\Commands\Add\"/>
+        <Folder Include="Features\Contacts\Commands\Delete\"/>
+        <Folder Include="Features\Contacts\Commands\Update\"/>
+        <Folder Include="Features\Contacts\Profiles\"/>
+        <Folder Include="Features\Contacts\Queries\GetAll\"/>
+        <Folder Include="Features\Contacts\Queries\GetById\"/>
+        <Folder Include="Features\Contacts\Rules\"/>
+        <Folder Include="Features\Discounts\Commands\Add\"/>
+        <Folder Include="Features\Discounts\Commands\Delete\"/>
+        <Folder Include="Features\Discounts\Commands\Update\"/>
+        <Folder Include="Features\Discounts\Profiles\"/>
+        <Folder Include="Features\Discounts\Queries\GetAll\"/>
+        <Folder Include="Features\Discounts\Queries\GetById\"/>
+        <Folder Include="Features\Discounts\Rules\"/>
+        <Folder Include="Features\Features\Commands\Add\"/>
+        <Folder Include="Features\Features\Commands\Delete\"/>
+        <Folder Include="Features\Features\Commands\Update\"/>
+        <Folder Include="Features\Features\Profiles\"/>
+        <Folder Include="Features\Features\Queries\GetAll\"/>
+        <Folder Include="Features\Features\Queries\GetById\"/>
+        <Folder Include="Features\Features\Rules\"/>
+        <Folder Include="Features\Products\Commands\Add\"/>
+        <Folder Include="Features\Products\Commands\Delete\"/>
+        <Folder Include="Features\Products\Commands\Update\"/>
+        <Folder Include="Features\Products\Profiles\"/>
+        <Folder Include="Features\Products\Queries\GetAll\"/>
+        <Folder Include="Features\Products\Queries\GetById\"/>
+        <Folder Include="Features\Products\Rules\"/>
+        <Folder Include="Features\SocialMedias\Commands\Add\"/>
+        <Folder Include="Features\SocialMedias\Commands\Delete\"/>
+        <Folder Include="Features\SocialMedias\Commands\Update\"/>
+        <Folder Include="Features\SocialMedias\Profiles\"/>
+        <Folder Include="Features\SocialMedias\Queries\GetAll\"/>
+        <Folder Include="Features\SocialMedias\Queries\GetById\"/>
+        <Folder Include="Features\SocialMedias\Rules\"/>
+        <Folder Include="Features\Testimonials\Commands\Add\"/>
+        <Folder Include="Features\Testimonials\Commands\Delete\"/>
+        <Folder Include="Features\Testimonials\Commands\Update\"/>
+        <Folder Include="Features\Testimonials\Profiles\"/>
+        <Folder Include="Features\Testimonials\Queries\GetAll\"/>
+        <Folder Include="Features\Testimonials\Queries\GetById\"/>
+        <Folder Include="Features\Testimonials\Rules\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0"/>
+        <PackageReference Include="Bogus" Version="35.6.2"/>
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0"/>
+        <PackageReference Include="MediatR" Version="12.4.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\SRP.Domain\SRP.Domain.csproj"/>
+        <ProjectReference Include="..\..\core\Core.Application\Core.Application.csproj"/>
+        <ProjectReference Include="..\..\core\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj"/>
+        <ProjectReference Include="..\..\core\Core.Persistence\Core.Persistence.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="SRP.Domain">
+        <HintPath>..\SRP.Domain\bin\Debug\net8.0\SRP.Domain.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
