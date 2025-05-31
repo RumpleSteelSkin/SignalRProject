@@ -11,12 +11,12 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8"/>
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\..\SRP.Domain\SRP.Domain.csproj"/>
+        <ProjectReference Include="..\..\project\SRP.Domain\SRP.Domain.csproj"/>
         <ProjectReference Include="..\SRP.Application\SRP.Application.csproj"/>
     </ItemGroup>
     <ItemGroup>
       <Reference Include="SRP.Domain">
-        <HintPath>..\SRP.Domain\bin\Debug\net8.0\SRP.Domain.dll</HintPath>
+        <HintPath>project\SRP.Domain\bin\Debug\net8.0\SRP.Domain.dll</HintPath>
       </Reference>
     </ItemGroup>
 </Project>

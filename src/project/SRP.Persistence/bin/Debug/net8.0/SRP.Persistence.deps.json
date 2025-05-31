@@ -12,8 +12,7 @@
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
           "SRP.Application": "1.0.0",
-          "SRP.Domain": "1.0.0",
-          "SRP.Domain.Reference": "1.0.0.0"
+          "SRP.Domain": "1.0.0"
         },
         "runtime": {
           "SRP.Persistence.dll": {}
@@ -1398,12 +1397,12 @@
           "SRP.Application.dll": {}
         }
       },
-      "SRP.Domain.Reference/1.0.0.0": {
+      "SRP.Domain/1.0.0": {
+        "dependencies": {
+          "Core.Persistence": "1.0.0"
+        },
         "runtime": {
-          "SRP.Domain.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "SRP.Domain.dll": {}
         }
       }
     }
@@ -2288,8 +2287,8 @@
       "serviceable": false,
       "sha512": ""
     },
-    "SRP.Domain.Reference/1.0.0.0": {
-      "type": "reference",
+    "SRP.Domain/1.0.0": {
+      "type": "project",
       "serviceable": false,
       "sha512": ""
     }

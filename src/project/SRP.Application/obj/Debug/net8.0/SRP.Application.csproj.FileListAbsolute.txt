@@ -19,3 +19,4 @@ C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Application\obj\
 C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Application\obj\Debug\net8.0\refint\SRP.Application.dll
 C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Application\obj\Debug\net8.0\SRP.Application.pdb
 C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Application\obj\Debug\net8.0\ref\SRP.Application.dll
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\project\SRP.Application\obj\Debug\net8.0\SRP.Application.sourcelink.json

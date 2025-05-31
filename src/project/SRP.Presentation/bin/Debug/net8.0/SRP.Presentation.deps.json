@@ -2333,6 +2333,14 @@
           "SRP.Application.dll": {}
         }
       },
+      "SRP.Domain/1.0.0": {
+        "dependencies": {
+          "Core.Persistence": "1.0.0"
+        },
+        "runtime": {
+          "SRP.Domain.dll": {}
+        }
+      },
       "SRP.Persistence/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
@@ -2343,14 +2351,6 @@
         },
         "runtime": {
           "SRP.Persistence.dll": {}
-        }
-      },
-      "SRP.Domain.Reference/1.0.0.0": {
-        "runtime": {
-          "SRP.Domain.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
         }
       }
     }
@@ -3767,13 +3767,13 @@
       "serviceable": false,
       "sha512": ""
     },
-    "SRP.Persistence/1.0.0": {
+    "SRP.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "SRP.Domain.Reference/1.0.0.0": {
-      "type": "reference",
+    "SRP.Persistence/1.0.0": {
+      "type": "project",
       "serviceable": false,
       "sha512": ""
     }

@@ -10,3 +10,4 @@ C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\core\Core.CrossCuttingConcer
 C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\refint\Core.CrossCuttingConcerns.dll
 C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.pdb
 C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\ref\Core.CrossCuttingConcerns.dll
+C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.sourcelink.json

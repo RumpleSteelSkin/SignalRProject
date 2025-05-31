@@ -9,12 +9,6 @@
     <ItemGroup>
         <Folder Include="Constants\"/>
         <Folder Include="Features\Abouts\Rules\"/>
-        <Folder Include="Features\Bookings\Commands\Add\"/>
-        <Folder Include="Features\Bookings\Commands\Delete\"/>
-        <Folder Include="Features\Bookings\Commands\Update\"/>
-        <Folder Include="Features\Bookings\Profiles\"/>
-        <Folder Include="Features\Bookings\Queries\GetAll\"/>
-        <Folder Include="Features\Bookings\Queries\GetById\"/>
         <Folder Include="Features\Bookings\Rules\"/>
         <Folder Include="Features\Categories\Commands\Add\"/>
         <Folder Include="Features\Categories\Commands\Delete\"/>
@@ -75,7 +69,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\SRP.Domain\SRP.Domain.csproj"/>
+        <ProjectReference Include="..\..\project\SRP.Domain\SRP.Domain.csproj"/>
         <ProjectReference Include="..\..\core\Core.Application\Core.Application.csproj"/>
         <ProjectReference Include="..\..\core\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj"/>
         <ProjectReference Include="..\..\core\Core.Persistence\Core.Persistence.csproj"/>

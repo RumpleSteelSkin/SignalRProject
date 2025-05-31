@@ -9132,8 +9132,8 @@
     },
     "SRP.Domain/1.0.0": {
       "type": "project",
-      "path": "../../../SRP.Domain/SRP.Domain.csproj",
-      "msbuildProject": "../../../SRP.Domain/SRP.Domain.csproj"
+      "path": "../SRP.Domain/SRP.Domain.csproj",
+      "msbuildProject": "../SRP.Domain/SRP.Domain.csproj"
     },
     "SRP.Persistence/1.0.0": {
       "type": "project",

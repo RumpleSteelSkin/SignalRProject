@@ -283,8 +283,8 @@
               "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\core\\Core.Persistence\\Core.Persistence.csproj": {
                 "projectPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\core\\Core.Persistence\\Core.Persistence.csproj"
               },
-              "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\SRP.Domain\\SRP.Domain.csproj": {
-                "projectPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\SRP.Domain\\SRP.Domain.csproj"
+              "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\project\\SRP.Domain\\SRP.Domain.csproj": {
+                "projectPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\project\\SRP.Domain\\SRP.Domain.csproj"
               }
             }
           }
@@ -341,14 +341,14 @@
         }
       }
     },
-    "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\SRP.Domain\\SRP.Domain.csproj": {
+    "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\project\\SRP.Domain\\SRP.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\SRP.Domain\\SRP.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\project\\SRP.Domain\\SRP.Domain.csproj",
         "projectName": "SRP.Domain",
-        "projectPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\SRP.Domain\\SRP.Domain.csproj",
+        "projectPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\project\\SRP.Domain\\SRP.Domain.csproj",
         "packagesPath": "C:\\Users\\QWERTY_V5\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\SRP.Domain\\obj\\",
+        "outputPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\project\\SRP.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\QWERTY_V5\\AppData\\Roaming\\NuGet\\NuGet.Config",

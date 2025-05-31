@@ -6379,8 +6379,8 @@
     },
     "SRP.Domain/1.0.0": {
       "type": "project",
-      "path": "../../../SRP.Domain/SRP.Domain.csproj",
-      "msbuildProject": "../../../SRP.Domain/SRP.Domain.csproj"
+      "path": "../SRP.Domain/SRP.Domain.csproj",
+      "msbuildProject": "../SRP.Domain/SRP.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6432,8 +6432,8 @@
             "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\core\\Core.Persistence\\Core.Persistence.csproj": {
               "projectPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\core\\Core.Persistence\\Core.Persistence.csproj"
             },
-            "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\SRP.Domain\\SRP.Domain.csproj": {
-              "projectPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\SRP.Domain\\SRP.Domain.csproj"
+            "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\project\\SRP.Domain\\SRP.Domain.csproj": {
+              "projectPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\project\\SRP.Domain\\SRP.Domain.csproj"
             }
           }
         }
