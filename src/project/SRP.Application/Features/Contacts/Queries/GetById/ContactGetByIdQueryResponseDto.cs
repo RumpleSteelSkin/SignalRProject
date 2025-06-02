@@ -1,8 +1,6 @@
-﻿using MediatR;
+﻿namespace SRP.Application.Features.Contacts.Queries.GetById;
 
-namespace SRP.Application.Features.Contacts.Commands.Add;
-
-public class ContactAddCommand : IRequest<string>
+public class ContactGetByIdQueryResponseDto
 {
     public string? Location { get; set; }
     public string? Phone { get; set; }

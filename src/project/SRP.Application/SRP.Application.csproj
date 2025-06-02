@@ -11,11 +11,7 @@
         <Folder Include="Features\Abouts\Rules\"/>
         <Folder Include="Features\Bookings\Rules\"/>
         <Folder Include="Features\Categories\Rules\"/>
-        <Folder Include="Features\Contacts\Commands\Delete\"/>
-        <Folder Include="Features\Contacts\Commands\Update\"/>
         <Folder Include="Features\Contacts\Profiles\"/>
-        <Folder Include="Features\Contacts\Queries\GetAll\"/>
-        <Folder Include="Features\Contacts\Queries\GetById\"/>
         <Folder Include="Features\Contacts\Rules\"/>
         <Folder Include="Features\Discounts\Commands\Add\"/>
         <Folder Include="Features\Discounts\Commands\Delete\"/>

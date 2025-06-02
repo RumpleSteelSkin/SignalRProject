@@ -1,9 +1,10 @@
 ﻿using MediatR;
 
-namespace SRP.Application.Features.Contacts.Commands.Add;
+namespace SRP.Application.Features.Contacts.Commands.Update;
 
-public class ContactAddCommand : IRequest<string>
+public class ContactUpdateCommand : IRequest<string>
 {
+    public int Id { get; set; }
     public string? Location { get; set; }
     public string? Phone { get; set; }
     public string? Mail { get; set; }
