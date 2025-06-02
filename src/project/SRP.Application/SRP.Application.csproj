@@ -10,12 +10,6 @@
         <Folder Include="Constants\"/>
         <Folder Include="Features\Abouts\Rules\"/>
         <Folder Include="Features\Bookings\Rules\"/>
-        <Folder Include="Features\Categories\Commands\Add\"/>
-        <Folder Include="Features\Categories\Commands\Delete\"/>
-        <Folder Include="Features\Categories\Commands\Update\"/>
-        <Folder Include="Features\Categories\Profiles\"/>
-        <Folder Include="Features\Categories\Queries\GetAll\"/>
-        <Folder Include="Features\Categories\Queries\GetById\"/>
         <Folder Include="Features\Categories\Rules\"/>
         <Folder Include="Features\Contacts\Commands\Add\"/>
         <Folder Include="Features\Contacts\Commands\Delete\"/>
