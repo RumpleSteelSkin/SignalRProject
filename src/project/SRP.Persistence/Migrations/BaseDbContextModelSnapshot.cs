@@ -56,6 +56,50 @@ namespace SRP.Persistence.Migrations
                     b.ToTable("Abouts");
                 });
 
+            modelBuilder.Entity("SRP.Domain.Models.Basket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Count")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MenuTableID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MenuTableID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("Baskets");
+                });
+
             modelBuilder.Entity("SRP.Domain.Models.Booking", b =>
                 {
                     b.Property<int>("Id")
@@ -142,6 +186,9 @@ namespace SRP.Persistence.Migrations
                     b.Property<string>("FooterDescription")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FooterTitle")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -149,6 +196,15 @@ namespace SRP.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OpenDays")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OpenDaysDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OpenHours")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
@@ -233,6 +289,115 @@ namespace SRP.Persistence.Migrations
                     b.ToTable("Features");
                 });
 
+            modelBuilder.Entity("SRP.Domain.Models.MenuTable", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MenuTables");
+                });
+
+            modelBuilder.Entity("SRP.Domain.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("Date");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("TableNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("SRP.Domain.Models.OrderDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("OrderDetails");
+                });
+
             modelBuilder.Entity("SRP.Domain.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -240,6 +405,9 @@ namespace SRP.Persistence.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
@@ -267,6 +435,8 @@ namespace SRP.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
                 });
@@ -340,6 +510,77 @@ namespace SRP.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Testimonials");
+                });
+
+            modelBuilder.Entity("SRP.Domain.Models.Basket", b =>
+                {
+                    b.HasOne("SRP.Domain.Models.MenuTable", "MenuTable")
+                        .WithMany("Baskets")
+                        .HasForeignKey("MenuTableID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SRP.Domain.Models.Product", "Product")
+                        .WithMany("Baskets")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MenuTable");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("SRP.Domain.Models.OrderDetail", b =>
+                {
+                    b.HasOne("SRP.Domain.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SRP.Domain.Models.Product", "Product")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("SRP.Domain.Models.Product", b =>
+                {
+                    b.HasOne("SRP.Domain.Models.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("SRP.Domain.Models.Category", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("SRP.Domain.Models.MenuTable", b =>
+                {
+                    b.Navigation("Baskets");
+                });
+
+            modelBuilder.Entity("SRP.Domain.Models.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("SRP.Domain.Models.Product", b =>
+                {
+                    b.Navigation("Baskets");
+
+                    b.Navigation("OrderDetails");
                 });
 #pragma warning restore 612, 618
         }
