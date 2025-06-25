@@ -16,12 +16,6 @@
         <Folder Include="Features\Features\Rules\"/>
         <Folder Include="Features\Products\Rules\"/>
         <Folder Include="Features\SocialMedias\Rules\"/>
-        <Folder Include="Features\Testimonials\Commands\Add\"/>
-        <Folder Include="Features\Testimonials\Commands\Delete\"/>
-        <Folder Include="Features\Testimonials\Commands\Update\"/>
-        <Folder Include="Features\Testimonials\Profiles\"/>
-        <Folder Include="Features\Testimonials\Queries\GetAll\"/>
-        <Folder Include="Features\Testimonials\Queries\GetById\"/>
         <Folder Include="Features\Testimonials\Rules\"/>
     </ItemGroup>
 
