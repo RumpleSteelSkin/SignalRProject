@@ -11,3 +11,16 @@ C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\core\Core.CrossCuttingConcer
 C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.pdb
 C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\ref\Core.CrossCuttingConcerns.dll
 C:\Users\QWERTY_V5\RiderProjects\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.sourcelink.json
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\bin\Debug\net8.0\Core.CrossCuttingConcerns.deps.json
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\bin\Debug\net8.0\Core.CrossCuttingConcerns.dll
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\bin\Debug\net8.0\Core.CrossCuttingConcerns.pdb
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.csproj.AssemblyReference.cache
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.AssemblyInfoInputs.cache
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.AssemblyInfo.cs
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.csproj.CoreCompileInputs.cache
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.sourcelink.json
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.dll
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\refint\Core.CrossCuttingConcerns.dll
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\Core.CrossCuttingConcerns.pdb
+D:\WORKPLACE\Rider\SignalRProject\src\core\Core.CrossCuttingConcerns\obj\Debug\net8.0\ref\Core.CrossCuttingConcerns.dll

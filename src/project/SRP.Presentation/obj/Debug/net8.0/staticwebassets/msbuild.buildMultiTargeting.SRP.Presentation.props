@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\SRP.Presentation.props" />
-</Project>

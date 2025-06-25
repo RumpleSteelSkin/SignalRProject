@@ -5805,19 +5805,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\QWERTY_V5\\.nuget\\packages\\": {}
+    "C:\\Users\\QWERTY_VX1\\.nuget\\packages\\": {},
+    "D:\\PROGRAMS\\MSSQL SERVER\\SSMS\\SDK\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\core\\Core.Application\\Core.Application.csproj",
+      "projectUniqueName": "D:\\WORKPLACE\\Rider\\SignalRProject\\src\\core\\Core.Application\\Core.Application.csproj",
       "projectName": "Core.Application",
-      "projectPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\core\\Core.Application\\Core.Application.csproj",
-      "packagesPath": "C:\\Users\\QWERTY_V5\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\core\\Core.Application\\obj\\",
+      "projectPath": "D:\\WORKPLACE\\Rider\\SignalRProject\\src\\core\\Core.Application\\Core.Application.csproj",
+      "packagesPath": "C:\\Users\\QWERTY_VX1\\.nuget\\packages\\",
+      "outputPath": "D:\\WORKPLACE\\Rider\\SignalRProject\\src\\core\\Core.Application\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\PROGRAMS\\MSSQL SERVER\\SSMS\\SDK\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\QWERTY_V5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\QWERTY_VX1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5825,15 +5830,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\core\\Core.CrossCuttingConcerns\\Core.CrossCuttingConcerns.csproj": {
-              "projectPath": "C:\\Users\\QWERTY_V5\\RiderProjects\\SignalRProject\\src\\core\\Core.CrossCuttingConcerns\\Core.CrossCuttingConcerns.csproj"
+            "D:\\WORKPLACE\\Rider\\SignalRProject\\src\\core\\Core.CrossCuttingConcerns\\Core.CrossCuttingConcerns.csproj": {
+              "projectPath": "D:\\WORKPLACE\\Rider\\SignalRProject\\src\\core\\Core.CrossCuttingConcerns\\Core.CrossCuttingConcerns.csproj"
             }
           }
         }
@@ -5847,7 +5851,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -5890,7 +5895,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

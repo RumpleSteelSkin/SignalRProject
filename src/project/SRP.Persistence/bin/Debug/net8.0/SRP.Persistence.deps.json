@@ -1357,7 +1357,10 @@
           "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
         },
         "runtime": {
-          "Core.Application.dll": {}
+          "Core.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Core.CrossCuttingConcerns/1.0.0": {
@@ -1369,7 +1372,10 @@
           "Serilog.Sinks.MSSqlServer": "8.2.0"
         },
         "runtime": {
-          "Core.CrossCuttingConcerns.dll": {}
+          "Core.CrossCuttingConcerns.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Core.Persistence/1.0.0": {
@@ -1379,7 +1385,10 @@
           "Microsoft.EntityFrameworkCore": "8.0.8"
         },
         "runtime": {
-          "Core.Persistence.dll": {}
+          "Core.Persistence.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "SRP.Application/1.0.0": {
@@ -1394,7 +1403,10 @@
           "SRP.Domain": "1.0.0"
         },
         "runtime": {
-          "SRP.Application.dll": {}
+          "SRP.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "SRP.Domain/1.0.0": {
@@ -1402,7 +1414,10 @@
           "Core.Persistence": "1.0.0"
         },
         "runtime": {
-          "SRP.Domain.dll": {}
+          "SRP.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

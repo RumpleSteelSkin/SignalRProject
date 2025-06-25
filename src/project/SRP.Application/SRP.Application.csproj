@@ -13,12 +13,6 @@
         <Folder Include="Features\Categories\Rules\"/>
         <Folder Include="Features\Contacts\Rules\"/>
         <Folder Include="Features\Discounts\Rules\"/>
-        <Folder Include="Features\Features\Commands\Add\"/>
-        <Folder Include="Features\Features\Commands\Delete\"/>
-        <Folder Include="Features\Features\Commands\Update\"/>
-        <Folder Include="Features\Features\Profiles\"/>
-        <Folder Include="Features\Features\Queries\GetAll\"/>
-        <Folder Include="Features\Features\Queries\GetById\"/>
         <Folder Include="Features\Features\Rules\"/>
         <Folder Include="Features\Products\Commands\Add\"/>
         <Folder Include="Features\Products\Commands\Delete\"/>
