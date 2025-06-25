@@ -14,12 +14,7 @@
         <Folder Include="Features\Contacts\Rules\"/>
         <Folder Include="Features\Discounts\Rules\"/>
         <Folder Include="Features\Features\Rules\"/>
-        <Folder Include="Features\Products\Commands\Add\"/>
-        <Folder Include="Features\Products\Commands\Delete\"/>
-        <Folder Include="Features\Products\Commands\Update\"/>
         <Folder Include="Features\Products\Profiles\"/>
-        <Folder Include="Features\Products\Queries\GetAll\"/>
-        <Folder Include="Features\Products\Queries\GetById\"/>
         <Folder Include="Features\Products\Rules\"/>
         <Folder Include="Features\SocialMedias\Commands\Add\"/>
         <Folder Include="Features\SocialMedias\Commands\Delete\"/>
