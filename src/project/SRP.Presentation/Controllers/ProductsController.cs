@@ -4,6 +4,7 @@ using SRP.Application.Features.Products.Commands.Add;
 using SRP.Application.Features.Products.Commands.Delete;
 using SRP.Application.Features.Products.Commands.Update;
 using SRP.Application.Features.Products.Queries.GetAll;
+using SRP.Application.Features.Products.Queries.GetAllWithCategoryName;
 using SRP.Application.Features.Products.Queries.GetById;
 
 namespace SRP.Presentation.Controllers
@@ -40,6 +41,12 @@ namespace SRP.Presentation.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(await mediator.Send(new ProductGetByIdQuery { Id = id }));
+        }
+
+        [HttpGet("GetAllWithCategoryName")]
+        public async Task<IActionResult> GetAllWithCategoryName()
+        {
+            return Ok(await mediator.Send(new ProductGetAllWithCategoryNameQuery()));
         }
     }
 }

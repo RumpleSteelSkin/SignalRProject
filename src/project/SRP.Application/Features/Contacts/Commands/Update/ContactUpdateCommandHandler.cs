@@ -13,8 +13,8 @@ public class ContactUpdateCommandHandler(IContactRepository contactRepository, I
         await contactRepository.UpdateAsync(
             mapper.Map(request,
                 await contactRepository.GetByIdAsync(id: request.Id, enableTracking: false, include: false,
-                    cancellationToken: cancellationToken) ?? throw new NotFoundException("Category is not found")),
+                    cancellationToken: cancellationToken) ?? throw new NotFoundException("Contact is not found")),
             cancellationToken: cancellationToken);
-        return $"Category {request.FooterTitle} is updated.";
+        return $"Contact {request.FooterTitle} is updated.";
     }
 }
