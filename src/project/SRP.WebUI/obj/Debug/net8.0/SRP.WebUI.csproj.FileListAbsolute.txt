@@ -31,3 +31,6 @@ D:\WORKPLACE\Rider\SignalRProject\src\project\SRP.WebUI\obj\Debug\net8.0\refint\
 D:\WORKPLACE\Rider\SignalRProject\src\project\SRP.WebUI\obj\Debug\net8.0\SRP.WebUI.pdb
 D:\WORKPLACE\Rider\SignalRProject\src\project\SRP.WebUI\obj\Debug\net8.0\SRP.WebUI.genruntimeconfig.cache
 D:\WORKPLACE\Rider\SignalRProject\src\project\SRP.WebUI\obj\Debug\net8.0\ref\SRP.WebUI.dll
+D:\WORKPLACE\Rider\SignalRProject\src\project\SRP.WebUI\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\WORKPLACE\Rider\SignalRProject\src\project\SRP.WebUI\obj\Debug\net8.0\SRP.WebUI.csproj.AssemblyReference.cache
+D:\WORKPLACE\Rider\SignalRProject\src\project\SRP.WebUI\obj\Debug\net8.0\SRP.WebUI.csproj.Up2Date
