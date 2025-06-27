@@ -1,8 +1,6 @@
-﻿using MediatR;
+﻿namespace SRP.WebUI.Dtos.Product;
 
-namespace SRP.Application.Features.Products.Commands.Add;
-
-public class ProductAddCommand : IRequest<string>
+public class CreateProductDto
 {
     public required string Name { get; set; }
     public string? Description { get; set; }

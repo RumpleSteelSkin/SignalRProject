@@ -2,9 +2,30 @@
 
 public static class ApiRoutes
 {
-    public const string CategoryGetAll = "http://localhost:5161/api/Categories/GetAll";
-    public const string CategoryAdd = "http://localhost:5161/api/Categories/Add";
-    public const string CategoryUpdate = "http://localhost:5161/api/Categories/Update";
-    public const string CategoryDelete = "http://localhost:5161/api/Categories/Delete";
-    public const string CategoryGetById = "http://localhost:5161/api/Categories/GetById";
+    public const string BaseUrl = "http://localhost:5161/api/";
+
+    public const string CategoryGetAll = $"{BaseUrl}Categories/GetAll";
+    public const string CategoryAdd = $"{BaseUrl}Categories/Add";
+    public const string CategoryUpdate = $"{BaseUrl}Categories/Update";
+    public const string CategoryDelete = $"{BaseUrl}Categories/Delete";
+    public const string CategoryGetById = $"{BaseUrl}Categories/GetById";
+
+    public const string ProductGetAllWithCategoryName = $"{BaseUrl}Products/GetAllWithCategoryName";
+    public const string ProductAdd = $"{BaseUrl}Products/Add";
+    public const string ProductUpdate = $"{BaseUrl}Products/Update";
+    public const string ProductDelete = $"{BaseUrl}Products/Delete";
+    public const string ProductGetById = $"{BaseUrl}Products/GetById";
+
+    public const string AboutGetAll = $"{BaseUrl}Abouts/GetAll";
+    public const string AboutAdd = $"{BaseUrl}Abouts/Add";
+    public const string AboutUpdate = $"{BaseUrl}Abouts/Update";
+    public const string AboutDelete = $"{BaseUrl}Abouts/Delete";
+    public const string AboutGetById = $"{BaseUrl}Abouts/GetById";
+    
+    
+    public const string BookingGetAll = $"{BaseUrl}Bookings/GetAll";
+    public const string BookingAdd = $"{BaseUrl}Bookings/Add";
+    public const string BookingUpdate = $"{BaseUrl}Bookings/Update";
+    public const string BookingDelete = $"{BaseUrl}Bookings/Delete";
+    public const string BookingGetById = $"{BaseUrl}Bookings/GetById";
 }

@@ -1,11 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SRP.WebUI.Hooks.Jsons;
 
 public class JsonService(IHttpClientFactory factory)
 {
     private readonly HttpClient _client = factory.CreateClient();
+
     public async Task<ICollection<T>?> GetAsync<T>(string url)
     {
         var response = await _client.GetAsync(url);
@@ -13,6 +15,7 @@ public class JsonService(IHttpClientFactory factory)
         var content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<ICollection<T>>(content);
     }
+
     public async Task PostAsync<TRequest>(string url, TRequest data)
     {
         var jsonData = JsonConvert.SerializeObject(data);
@@ -21,10 +24,10 @@ public class JsonService(IHttpClientFactory factory)
         if (!response.IsSuccessStatusCode)
         {
             var errorContent = await response.Content.ReadAsStringAsync();
-            throw new Exception($"API hatası: {response.StatusCode} - {errorContent}");
+            throw new Exception($"API error: {response.StatusCode} - {errorContent}");
         }
     }
-    
+
     public async Task DeleteAsync(string url, int id)
     {
         var response = await _client.DeleteAsync($"{url}?id={id}");
@@ -32,23 +35,24 @@ public class JsonService(IHttpClientFactory factory)
         if (!response.IsSuccessStatusCode)
         {
             var errorContent = await response.Content.ReadAsStringAsync();
-            throw new Exception($"Silme işlemi başarısız: {response.StatusCode} - {errorContent}");
+            throw new Exception($"Deletion Failed: {response.StatusCode} - {errorContent}");
         }
     }
-    
+
     public async Task<T?> GetByIdAsync<T>(string urlWithId)
     {
         var response = await _client.GetAsync(urlWithId);
         if (!response.IsSuccessStatusCode)
         {
             var errorContent = await response.Content.ReadAsStringAsync();
-            throw new Exception($"Veri çekme hatası: {response.StatusCode} - {errorContent}");
+            throw new Exception($"Data extraction error: {response.StatusCode} - {errorContent}");
         }
+
         var content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<T>(content);
     }
 
-    
+
     public async Task UpdateAsync<T>(string url, T data)
     {
         var jsonData = JsonConvert.SerializeObject(data);
@@ -59,11 +63,16 @@ public class JsonService(IHttpClientFactory factory)
         if (!response.IsSuccessStatusCode)
         {
             var errorContent = await response.Content.ReadAsStringAsync();
-            throw new Exception($"Güncelleme başarısız: {response.StatusCode} - {errorContent}");
+            throw new Exception($"Update failed: {response.StatusCode} - {errorContent}");
         }
     }
-    
-    
 
-
+    public async Task<List<SelectListItem>> GetSelectListAsync<T>(string url, Func<T, string?> textSelector,
+        Func<T, string?> valueSelector)
+    {
+        var data = await GetAsync<T>(url);
+        if (data == null) return [];
+        return data.Select(item => new SelectListItem { Text = textSelector(item), Value = valueSelector(item) })
+            .ToList();
+    }
 }

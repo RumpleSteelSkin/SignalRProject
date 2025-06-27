@@ -1,0 +1,66 @@
+﻿@model UpdateBookingDto?
+
+@{
+    ViewBag.Title = "Booking Update";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Booking Processes</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" asp-action="Update" asp-controller="Booking">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Update Booking Page</div>
+                        </div>
+                        <div class="card-body">
+                            <input type="hidden" asp-for="Id" />
+
+                            <div class="form-group">
+                                <label for="Name">Name</label>
+                                <input type="text" class="form-control" id="Name" asp-for="Name"
+                                       placeholder="Enter Booking Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Phone">Phone</label>
+                                <input type="text" class="form-control" id="Phone" asp-for="Phone"
+                                       placeholder="Enter Booking Phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Mail">Mail</label>
+                                <input type="email" class="form-control" id="Mail" asp-for="Mail"
+                                       placeholder="Enter Booking Mail">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Description">Description</label>
+                                <input type="text" class="form-control" id="Description" asp-for="Description"
+                                       placeholder="Enter Booking Description">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="PersonCount">Person Count</label>
+                                <input type="number" class="form-control" id="PersonCount" asp-for="PersonCount"
+                                       placeholder="Enter Booking Person Count">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Date">Date</label>
+                                <input type="date" class="form-control" id="Date" asp-for="Date"
+                                       placeholder="Enter Booking Date">
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Update Booking</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

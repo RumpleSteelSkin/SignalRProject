@@ -10,4 +10,17 @@
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Pages\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Views\About\Create.cshtml" />
+      <AdditionalFiles Include="Views\About\Update.cshtml" />
+      <AdditionalFiles Include="Views\Booking\Create.cshtml" />
+      <AdditionalFiles Include="Views\Booking\Index.cshtml" />
+      <AdditionalFiles Include="Views\Booking\Update.cshtml" />
+      <AdditionalFiles Include="Views\Product\Index.cshtml" />
+    </ItemGroup>
+
 </Project>
