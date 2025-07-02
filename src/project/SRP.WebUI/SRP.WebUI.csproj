@@ -25,6 +25,7 @@
       <AdditionalFiles Include="Views\Feature\Index.cshtml" />
       <AdditionalFiles Include="Views\Product\Index.cshtml" />
       <AdditionalFiles Include="Views\SocialMedia\Index.cshtml" />
+      <AdditionalFiles Include="Views\Testimonial\Index.cshtml" />
     </ItemGroup>
 
 </Project>

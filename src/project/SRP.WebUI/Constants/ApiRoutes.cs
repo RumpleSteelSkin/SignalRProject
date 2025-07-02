@@ -21,35 +21,40 @@ public static class ApiRoutes
     public const string AboutUpdate = $"{BaseUrl}Abouts/Update";
     public const string AboutDelete = $"{BaseUrl}Abouts/Delete";
     public const string AboutGetById = $"{BaseUrl}Abouts/GetById";
-    
+
     public const string BookingGetAll = $"{BaseUrl}Bookings/GetAll";
     public const string BookingAdd = $"{BaseUrl}Bookings/Add";
     public const string BookingUpdate = $"{BaseUrl}Bookings/Update";
     public const string BookingDelete = $"{BaseUrl}Bookings/Delete";
     public const string BookingGetById = $"{BaseUrl}Bookings/GetById";
-    
+
     public const string ContactGetAll = $"{BaseUrl}Contacts/GetAll";
     public const string ContactAdd = $"{BaseUrl}Contacts/Add";
     public const string ContactUpdate = $"{BaseUrl}Contacts/Update";
     public const string ContactDelete = $"{BaseUrl}Contacts/Delete";
     public const string ContactGetById = $"{BaseUrl}Contacts/GetById";
-    
+
     public const string DiscountGetAll = $"{BaseUrl}Discounts/GetAll";
     public const string DiscountAdd = $"{BaseUrl}Discounts/Add";
     public const string DiscountUpdate = $"{BaseUrl}Discounts/Update";
     public const string DiscountDelete = $"{BaseUrl}Discounts/Delete";
     public const string DiscountGetById = $"{BaseUrl}Discounts/GetById";
-    
-    
+
     public const string FeatureGetAll = $"{BaseUrl}Features/GetAll";
     public const string FeatureAdd = $"{BaseUrl}Features/Add";
     public const string FeatureUpdate = $"{BaseUrl}Features/Update";
     public const string FeatureDelete = $"{BaseUrl}Features/Delete";
     public const string FeatureGetById = $"{BaseUrl}Features/GetById";
-    
+
     public const string SocialMediaGetAll = $"{BaseUrl}SocialMedias/GetAll";
     public const string SocialMediaAdd = $"{BaseUrl}SocialMedias/Add";
     public const string SocialMediaUpdate = $"{BaseUrl}SocialMedias/Update";
     public const string SocialMediaDelete = $"{BaseUrl}SocialMedias/Delete";
     public const string SocialMediaGetById = $"{BaseUrl}SocialMedias/GetById";
+
+    public const string TestimonialGetAll = $"{BaseUrl}Testimonials/GetAll";
+    public const string TestimonialAdd = $"{BaseUrl}Testimonials/Add";
+    public const string TestimonialUpdate = $"{BaseUrl}Testimonials/Update";
+    public const string TestimonialDelete = $"{BaseUrl}Testimonials/Delete";
+    public const string TestimonialGetById = $"{BaseUrl}Testimonials/GetById";
 }

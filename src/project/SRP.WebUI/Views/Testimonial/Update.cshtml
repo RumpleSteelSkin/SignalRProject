@@ -1,0 +1,55 @@
+﻿@model UpdateTestimonialDto?
+
+@{
+    ViewBag.Title = "Testimonial Update";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Testimonial Processes</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" asp-action="Update" asp-controller="Testimonial">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Update Testimonial Page</div>
+                        </div>
+                        <div class="card-body">
+                            <input type="hidden" asp-for="Id" />
+
+                            <div class="form-group">
+                                <label for="Name">Name</label>
+                                <input type="text" class="form-control" id="Name" asp-for="Name"
+                                       placeholder="Enter Testimonial Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" class="form-control" id="Title" asp-for="Title"
+                                       placeholder="Enter Testimonial Title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Comment">Comment</label>
+                                <input type="text" class="form-control" id="Comment" asp-for="Comment"
+                                       placeholder="Enter Testimonial Comment">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ImageUrl">Image</label>
+                                <input type="text" class="form-control" id="ImageUrl" asp-for="ImageUrl"
+                                       placeholder="Enter Testimonial Image">
+                            </div>
+
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Update Testimonial</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
