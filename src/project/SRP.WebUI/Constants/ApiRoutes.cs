@@ -39,4 +39,11 @@ public static class ApiRoutes
     public const string DiscountUpdate = $"{BaseUrl}Discounts/Update";
     public const string DiscountDelete = $"{BaseUrl}Discounts/Delete";
     public const string DiscountGetById = $"{BaseUrl}Discounts/GetById";
+    
+    
+    public const string FeatureGetAll = $"{BaseUrl}Features/GetAll";
+    public const string FeatureAdd = $"{BaseUrl}Features/Add";
+    public const string FeatureUpdate = $"{BaseUrl}Features/Update";
+    public const string FeatureDelete = $"{BaseUrl}Features/Delete";
+    public const string FeatureGetById = $"{BaseUrl}Features/GetById";
 }

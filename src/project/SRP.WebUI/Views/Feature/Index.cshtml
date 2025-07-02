@@ -1,0 +1,50 @@
+﻿@model ICollection<ResultFeatureDto>?
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Feature Process</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Feature List</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            You can perform transactions related to the Feature below.
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Feature Title</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Update</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach(var item in Model){
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Description</td>
+                                    <td><a href="/Feature/Delete/@item.Id" class="btn btn-outline-danger">Delete</a></td>
+                                    <td><a href="/Feature/Update/@item.Id" class="btn btn-outline-success">Update</a></td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                        <td><a href="/Feature/Create" class="btn btn-outline-primary">New</a></td>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
