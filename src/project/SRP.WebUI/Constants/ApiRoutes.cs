@@ -22,17 +22,21 @@ public static class ApiRoutes
     public const string AboutDelete = $"{BaseUrl}Abouts/Delete";
     public const string AboutGetById = $"{BaseUrl}Abouts/GetById";
     
-    
     public const string BookingGetAll = $"{BaseUrl}Bookings/GetAll";
     public const string BookingAdd = $"{BaseUrl}Bookings/Add";
     public const string BookingUpdate = $"{BaseUrl}Bookings/Update";
     public const string BookingDelete = $"{BaseUrl}Bookings/Delete";
     public const string BookingGetById = $"{BaseUrl}Bookings/GetById";
     
-    
     public const string ContactGetAll = $"{BaseUrl}Contacts/GetAll";
     public const string ContactAdd = $"{BaseUrl}Contacts/Add";
     public const string ContactUpdate = $"{BaseUrl}Contacts/Update";
     public const string ContactDelete = $"{BaseUrl}Contacts/Delete";
     public const string ContactGetById = $"{BaseUrl}Contacts/GetById";
+    
+    public const string DiscountGetAll = $"{BaseUrl}Discounts/GetAll";
+    public const string DiscountAdd = $"{BaseUrl}Discounts/Add";
+    public const string DiscountUpdate = $"{BaseUrl}Discounts/Update";
+    public const string DiscountDelete = $"{BaseUrl}Discounts/Delete";
+    public const string DiscountGetById = $"{BaseUrl}Discounts/GetById";
 }

@@ -21,6 +21,7 @@
       <AdditionalFiles Include="Views\Booking\Index.cshtml" />
       <AdditionalFiles Include="Views\Booking\Update.cshtml" />
       <AdditionalFiles Include="Views\Contact\Index.cshtml" />
+      <AdditionalFiles Include="Views\Discount\Index.cshtml" />
       <AdditionalFiles Include="Views\Product\Index.cshtml" />
     </ItemGroup>
 
