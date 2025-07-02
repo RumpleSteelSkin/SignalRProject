@@ -1,4 +1,6 @@
-﻿namespace SRP.Presentation.Extensions;
+﻿using SRP.Presentation.Hubs;
+
+namespace SRP.Presentation.Extensions;
 
 public static class AppRegistration
 {
@@ -13,12 +15,13 @@ public static class AppRegistration
 
         app.UseHttpsRedirection();
 
+        app.UseRouting();
+        app.UseCors("AllowAll");
         //Warning: Priority...
         app.UseAuthentication(); //1st
         app.UseAuthorization(); //2nd
-        app.UseCors("AllowAll");
         app.MapControllers();
-
+        app.MapHub<SignalRHub>("/signalrhub");
         app.Run();
 
         return app;

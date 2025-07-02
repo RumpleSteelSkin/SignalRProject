@@ -73,10 +73,17 @@ public static class ServiceRegistration
         services.AddCors(opt =>
         {
             opt.AddPolicy("AllowAll", policy =>
-                policy.AllowAnyOrigin()
+                policy.AllowAnyHeader()
                     .AllowAnyMethod()
-                    .AllowAnyHeader());
+                    .SetIsOriginAllowed((host) => true)
+                    .AllowCredentials());
         });
+
+        #endregion
+
+        #region SignalR Services
+
+        services.AddSignalR();
 
         #endregion
 
