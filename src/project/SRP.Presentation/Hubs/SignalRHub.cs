@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using SRP.Persistence.Contexts;
 
 namespace SRP.Presentation.Hubs;
-public class SignalRHub : Hub
+
+public class SignalRHub(BaseDbContext context) : Hub
 {
-    public async Task SendMessage(string user, string message)
+    public async Task SendCategoryCount()
     {
-        await Clients.All.SendAsync("ReceiveMessage", user, message);
+        await Clients.All.SendAsync("ReceiveCategoryCount", context.Categories.Count());
     }
 }

@@ -1,60 +1,122 @@
-﻿namespace SRP.WebUI.Constants;
-
-public static class ApiRoutes
+﻿namespace SRP.WebUI.Constants
 {
-    public const string BaseUrl = "http://localhost:5161/api/";
+    public static class ApiRoutes
+    {
+        public const string BaseUrl = "http://localhost:5161/";
 
-    public const string CategoryGetAll = $"{BaseUrl}Categories/GetAll";
-    public const string CategoryAdd = $"{BaseUrl}Categories/Add";
-    public const string CategoryUpdate = $"{BaseUrl}Categories/Update";
-    public const string CategoryDelete = $"{BaseUrl}Categories/Delete";
-    public const string CategoryGetById = $"{BaseUrl}Categories/GetById";
+        public static class Category
+        {
+            private const string Prefix = $"{BaseUrl}api/Categories/";
 
-    public const string ProductGetAllWithCategoryName = $"{BaseUrl}Products/GetAllWithCategoryName";
-    public const string ProductAdd = $"{BaseUrl}Products/Add";
-    public const string ProductUpdate = $"{BaseUrl}Products/Update";
-    public const string ProductDelete = $"{BaseUrl}Products/Delete";
-    public const string ProductGetById = $"{BaseUrl}Products/GetById";
+            public const string GetAll = $"{Prefix}GetAll";
+            public const string Add = $"{Prefix}Add";
+            public const string Update = $"{Prefix}Update";
+            public const string Delete = $"{Prefix}Delete";
+            public const string GetById = $"{Prefix}GetById";
+            public const string GetCount = $"{Prefix}GetCount";
+            public const string GetActiveCount = $"{Prefix}GetActiveCount";
+            public const string GetPassiveCount = $"{Prefix}GetPassiveCount";
+        }
 
-    public const string AboutGetAll = $"{BaseUrl}Abouts/GetAll";
-    public const string AboutAdd = $"{BaseUrl}Abouts/Add";
-    public const string AboutUpdate = $"{BaseUrl}Abouts/Update";
-    public const string AboutDelete = $"{BaseUrl}Abouts/Delete";
-    public const string AboutGetById = $"{BaseUrl}Abouts/GetById";
+        public static class Product
+        {
+            private const string Prefix = $"{BaseUrl}api/Products/";
 
-    public const string BookingGetAll = $"{BaseUrl}Bookings/GetAll";
-    public const string BookingAdd = $"{BaseUrl}Bookings/Add";
-    public const string BookingUpdate = $"{BaseUrl}Bookings/Update";
-    public const string BookingDelete = $"{BaseUrl}Bookings/Delete";
-    public const string BookingGetById = $"{BaseUrl}Bookings/GetById";
+            public const string GetAllWithCategoryName = $"{Prefix}GetAllWithCategoryName";
+            public const string Add = $"{Prefix}Add";
+            public const string Update = $"{Prefix}Update";
+            public const string Delete = $"{Prefix}Delete";
+            public const string GetById = $"{Prefix}GetById";
+            public const string GetCount = $"{Prefix}GetCount";
+            public const string GetCountWithCategoryNameOfHamburger = $"{Prefix}GetCountWithCategoryNameOfHamburger";
+            public const string GetCountWithCategoryNameOfDrink = $"{Prefix}GetCountWithCategoryNameOfDrink";
+            public const string GetTotalAveragePrice = $"{Prefix}GetTotalAveragePrice";
+            public const string GetNameByMaxPrice = $"{Prefix}GetNameByMaxPrice";
+            public const string GetNameByMinPrice = $"{Prefix}GetNameByMinPrice";
+        }
 
-    public const string ContactGetAll = $"{BaseUrl}Contacts/GetAll";
-    public const string ContactAdd = $"{BaseUrl}Contacts/Add";
-    public const string ContactUpdate = $"{BaseUrl}Contacts/Update";
-    public const string ContactDelete = $"{BaseUrl}Contacts/Delete";
-    public const string ContactGetById = $"{BaseUrl}Contacts/GetById";
+        public static class About
+        {
+            private const string Prefix = $"{BaseUrl}api/Abouts/";
 
-    public const string DiscountGetAll = $"{BaseUrl}Discounts/GetAll";
-    public const string DiscountAdd = $"{BaseUrl}Discounts/Add";
-    public const string DiscountUpdate = $"{BaseUrl}Discounts/Update";
-    public const string DiscountDelete = $"{BaseUrl}Discounts/Delete";
-    public const string DiscountGetById = $"{BaseUrl}Discounts/GetById";
+            public const string GetAll = $"{Prefix}GetAll";
+            public const string Add = $"{Prefix}Add";
+            public const string Update = $"{Prefix}Update";
+            public const string Delete = $"{Prefix}Delete";
+            public const string GetById = $"{Prefix}GetById";
+            public const string GetCount = $"{Prefix}GetCount";
+        }
 
-    public const string FeatureGetAll = $"{BaseUrl}Features/GetAll";
-    public const string FeatureAdd = $"{BaseUrl}Features/Add";
-    public const string FeatureUpdate = $"{BaseUrl}Features/Update";
-    public const string FeatureDelete = $"{BaseUrl}Features/Delete";
-    public const string FeatureGetById = $"{BaseUrl}Features/GetById";
+        public static class Booking
+        {
+            private const string Prefix = $"{BaseUrl}api/Bookings/";
 
-    public const string SocialMediaGetAll = $"{BaseUrl}SocialMedias/GetAll";
-    public const string SocialMediaAdd = $"{BaseUrl}SocialMedias/Add";
-    public const string SocialMediaUpdate = $"{BaseUrl}SocialMedias/Update";
-    public const string SocialMediaDelete = $"{BaseUrl}SocialMedias/Delete";
-    public const string SocialMediaGetById = $"{BaseUrl}SocialMedias/GetById";
+            public const string GetAll = $"{Prefix}GetAll";
+            public const string Add = $"{Prefix}Add";
+            public const string Update = $"{Prefix}Update";
+            public const string Delete = $"{Prefix}Delete";
+            public const string GetById = $"{Prefix}GetById";
+            public const string GetCount = $"{Prefix}GetCount";
+        }
 
-    public const string TestimonialGetAll = $"{BaseUrl}Testimonials/GetAll";
-    public const string TestimonialAdd = $"{BaseUrl}Testimonials/Add";
-    public const string TestimonialUpdate = $"{BaseUrl}Testimonials/Update";
-    public const string TestimonialDelete = $"{BaseUrl}Testimonials/Delete";
-    public const string TestimonialGetById = $"{BaseUrl}Testimonials/GetById";
+        public static class Contact
+        {
+            private const string Prefix = $"{BaseUrl}api/Contacts/";
+
+            public const string GetAll = $"{Prefix}GetAll";
+            public const string Add = $"{Prefix}Add";
+            public const string Update = $"{Prefix}Update";
+            public const string Delete = $"{Prefix}Delete";
+            public const string GetById = $"{Prefix}GetById";
+            public const string GetCount = $"{Prefix}GetCount";
+        }
+
+        public static class Discount
+        {
+            private const string Prefix = $"{BaseUrl}api/Discounts/";
+
+            public const string GetAll = $"{Prefix}GetAll";
+            public const string Add = $"{Prefix}Add";
+            public const string Update = $"{Prefix}Update";
+            public const string Delete = $"{Prefix}Delete";
+            public const string GetById = $"{Prefix}GetById";
+            public const string GetCount = $"{Prefix}GetCount";
+        }
+
+        public static class Feature
+        {
+            private const string Prefix = $"{BaseUrl}api/Features/";
+
+            public const string GetAll = $"{Prefix}GetAll";
+            public const string Add = $"{Prefix}Add";
+            public const string Update = $"{Prefix}Update";
+            public const string Delete = $"{Prefix}Delete";
+            public const string GetById = $"{Prefix}GetById";
+            public const string GetCount = $"{Prefix}GetCount";
+        }
+
+        public static class SocialMedia
+        {
+            private const string Prefix = $"{BaseUrl}api/SocialMedias/";
+
+            public const string GetAll = $"{Prefix}GetAll";
+            public const string Add = $"{Prefix}Add";
+            public const string Update = $"{Prefix}Update";
+            public const string Delete = $"{Prefix}Delete";
+            public const string GetById = $"{Prefix}GetById";
+            public const string GetCount = $"{Prefix}GetCount";
+        }
+
+        public static class Testimonial
+        {
+            private const string Prefix = $"{BaseUrl}api/Testimonials/";
+
+            public const string GetAll = $"{Prefix}GetAll";
+            public const string Add = $"{Prefix}Add";
+            public const string Update = $"{Prefix}Update";
+            public const string Delete = $"{Prefix}Delete";
+            public const string GetById = $"{Prefix}GetById";
+            public const string GetCount = $"{Prefix}GetCount";
+        }
+    }
 }

@@ -5,6 +5,7 @@ using SRP.Application.Features.Bookings.Commands.Delete;
 using SRP.Application.Features.Bookings.Commands.Update;
 using SRP.Application.Features.Bookings.Queries.GetAll;
 using SRP.Application.Features.Bookings.Queries.GetById;
+using SRP.Application.Features.Bookings.Queries.GetCount;
 
 namespace SRP.Presentation.Controllers;
 
@@ -40,5 +41,11 @@ public class BookingsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> GetById(int id)
     {
         return Ok(await mediator.Send(new BookingGetByIdQuery { Id = id }));
+    }
+
+    [HttpGet("GetCount")]
+    public async Task<IActionResult> GetCount()
+    {
+        return Ok(await mediator.Send(new BookingGetCountQuery()));
     }
 }

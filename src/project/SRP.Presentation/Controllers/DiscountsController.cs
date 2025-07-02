@@ -10,6 +10,7 @@ using SRP.Application.Features.Discounts.Commands.Delete;
 using SRP.Application.Features.Discounts.Commands.Update;
 using SRP.Application.Features.Discounts.Queries.GetAll;
 using SRP.Application.Features.Discounts.Queries.GetById;
+using SRP.Application.Features.Discounts.Queries.GetCount;
 
 namespace SRP.Presentation.Controllers;
 
@@ -45,5 +46,11 @@ public class DiscountsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> GetById(int id)
     {
         return Ok(await mediator.Send(new DiscountGetByIdQuery { Id = id }));
+    }
+
+    [HttpGet("GetCount")]
+    public async Task<IActionResult> GetCount()
+    {
+        return Ok(await mediator.Send(new DiscountGetCountQuery()));
     }
 }

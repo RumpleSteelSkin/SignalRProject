@@ -5,6 +5,7 @@ using SRP.Application.Features.Contacts.Commands.Delete;
 using SRP.Application.Features.Contacts.Commands.Update;
 using SRP.Application.Features.Contacts.Queries.GetAll;
 using SRP.Application.Features.Contacts.Queries.GetById;
+using SRP.Application.Features.Contacts.Queries.GetCount;
 
 namespace SRP.Presentation.Controllers;
 
@@ -40,5 +41,11 @@ public class ContactsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> GetById(int id)
     {
         return Ok(await mediator.Send(new ContactGetByIdQuery { Id = id }));
+    }
+
+    [HttpGet("GetCount")]
+    public async Task<IActionResult> GetCount()
+    {
+        return Ok(await mediator.Send(new ContactGetCountQuery()));
     }
 }

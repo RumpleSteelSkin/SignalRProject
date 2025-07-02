@@ -9,33 +9,33 @@ public class ContactController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultContactDto>(ApiRoutes.ContactGetAll));
+        return View(await jsonService.GetAsync<ResultContactDto>(ApiRoutes.Contact.GetAll));
     }
 
     public IActionResult Create() => View();
 
     public async Task<IActionResult> Delete(int id)
     {
-        await jsonService.DeleteAsync(ApiRoutes.ContactDelete, id);
+        await jsonService.DeleteAsync(ApiRoutes.Contact.Delete, id);
         return RedirectToAction(nameof(Index));
     }
 
     public async Task<IActionResult> Update(int id)
     {
-        return View(await jsonService.GetByIdAsync<UpdateContactDto>($"{ApiRoutes.ContactGetById}?id={id}"));
+        return View(await jsonService.GetByIdAsync<UpdateContactDto>($"{ApiRoutes.Contact.GetById}?id={id}"));
     }
 
     [HttpPost]
     public async Task<IActionResult> Create(CreateContactDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.ContactAdd, dto);
+        await jsonService.PostAsync(ApiRoutes.Contact.Add, dto);
         return RedirectToAction(nameof(Index));
     }
 
     [HttpPost]
     public async Task<IActionResult> Update(UpdateContactDto dto)
     {
-        await jsonService.UpdateAsync(ApiRoutes.ContactUpdate, dto);
+        await jsonService.UpdateAsync(ApiRoutes.Contact.Update, dto);
         return RedirectToAction(nameof(Index));
     }
 }

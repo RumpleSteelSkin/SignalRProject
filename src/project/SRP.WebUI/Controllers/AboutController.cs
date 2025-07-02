@@ -9,33 +9,33 @@ public class AboutController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultAboutDto>(ApiRoutes.AboutGetAll));
+        return View(await jsonService.GetAsync<ResultAboutDto>(ApiRoutes.About.GetAll));
     }
 
     public IActionResult Create() => View();
 
     public async Task<IActionResult> Delete(int id)
     {
-        await jsonService.DeleteAsync(ApiRoutes.AboutDelete, id);
+        await jsonService.DeleteAsync(ApiRoutes.About.Delete, id);
         return RedirectToAction(nameof(Index));
     }
 
     public async Task<IActionResult> Update(int id)
     {
-        return View(await jsonService.GetByIdAsync<UpdateAboutDto>($"{ApiRoutes.AboutGetById}?id={id}"));
+        return View(await jsonService.GetByIdAsync<UpdateAboutDto>($"{ApiRoutes.About.GetById}?id={id}"));
     }
 
     [HttpPost]
     public async Task<IActionResult> Create(CreateAboutDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.AboutAdd, dto);
+        await jsonService.PostAsync(ApiRoutes.About.Add, dto);
         return RedirectToAction(nameof(Index));
     }
 
     [HttpPost]
     public async Task<IActionResult> Update(UpdateAboutDto dto)
     {
-        await jsonService.UpdateAsync(ApiRoutes.AboutUpdate, dto);
+        await jsonService.UpdateAsync(ApiRoutes.About.Update, dto);
         return RedirectToAction(nameof(Index));
     }
 }

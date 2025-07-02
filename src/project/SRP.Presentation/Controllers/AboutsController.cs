@@ -5,6 +5,7 @@ using SRP.Application.Features.Abouts.Commands.Delete;
 using SRP.Application.Features.Abouts.Commands.Update;
 using SRP.Application.Features.Abouts.Queries.GetAll;
 using SRP.Application.Features.Abouts.Queries.GetById;
+using SRP.Application.Features.Abouts.Queries.GetCount;
 
 namespace SRP.Presentation.Controllers;
 
@@ -40,5 +41,11 @@ public class AboutsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> GetById(int id)
     {
         return Ok(await mediator.Send(new AboutGetByIdQuery { Id = id }));
+    }
+
+    [HttpGet("GetCount")]
+    public async Task<IActionResult> GetCount()
+    {
+        return Ok(await mediator.Send(new AboutGetCountQuery()));
     }
 }

@@ -5,6 +5,7 @@ using SRP.Application.Features.Features.Commands.Delete;
 using SRP.Application.Features.Features.Commands.Update;
 using SRP.Application.Features.Features.Queries.GetAll;
 using SRP.Application.Features.Features.Queries.GetById;
+using SRP.Application.Features.Features.Queries.GetCount;
 
 namespace SRP.Presentation.Controllers
 {
@@ -40,6 +41,12 @@ namespace SRP.Presentation.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(await mediator.Send(new FeatureGetByIdQuery { Id = id }));
+        }
+
+        [HttpGet("GetCount")]
+        public async Task<IActionResult> GetCount()
+        {
+            return Ok(await mediator.Send(new FeatureGetCountQuery()));
         }
     }
 }

@@ -183,7 +183,7 @@ public class EntityFrameworkRepositoryBase<TEntity, TId, TContext>(TContext cont
     }
 
     public async Task<int> CountAsync(Expression<Func<TEntity, bool>>? filter = null, bool ignoreQueryFilters = false,
-        bool include = true,
+        bool include = false,
         CancellationToken cancellationToken = default)
     {
         IQueryable<TEntity> query = context.Set<TEntity>();

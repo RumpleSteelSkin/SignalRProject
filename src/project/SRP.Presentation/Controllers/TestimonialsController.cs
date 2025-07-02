@@ -5,6 +5,7 @@ using SRP.Application.Features.Testimonials.Commands.Delete;
 using SRP.Application.Features.Testimonials.Commands.Update;
 using SRP.Application.Features.Testimonials.Queries.GetAll;
 using SRP.Application.Features.Testimonials.Queries.GetById;
+using SRP.Application.Features.Testimonials.Queries.GetCount;
 
 namespace SRP.Presentation.Controllers
 {
@@ -40,6 +41,12 @@ namespace SRP.Presentation.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(await mediator.Send(new TestimonialGetByIdQuery { Id = id }));
+        }
+
+        [HttpGet("GetCount")]
+        public async Task<IActionResult> GetCount()
+        {
+            return Ok(await mediator.Send(new TestimonialGetCountQuery()));
         }
     }
 }

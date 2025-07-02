@@ -5,6 +5,7 @@ using SRP.Application.Features.SocialMedias.Commands.Delete;
 using SRP.Application.Features.SocialMedias.Commands.Update;
 using SRP.Application.Features.SocialMedias.Queries.GetAll;
 using SRP.Application.Features.SocialMedias.Queries.GetById;
+using SRP.Application.Features.SocialMedias.Queries.GetCount;
 
 namespace SRP.Presentation.Controllers
 {
@@ -40,6 +41,12 @@ namespace SRP.Presentation.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(await mediator.Send(new SocialMediaGetByIdQuery { Id = id }));
+        }
+        
+        [HttpGet("GetCount")]
+        public async Task<IActionResult> GetCount()
+        {
+            return Ok(await mediator.Send(new SocialMediaGetCountQuery()));
         }
     }
 }
