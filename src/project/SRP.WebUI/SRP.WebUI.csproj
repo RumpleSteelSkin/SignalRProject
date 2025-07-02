@@ -24,6 +24,7 @@
       <AdditionalFiles Include="Views\Discount\Index.cshtml" />
       <AdditionalFiles Include="Views\Feature\Index.cshtml" />
       <AdditionalFiles Include="Views\Product\Index.cshtml" />
+      <AdditionalFiles Include="Views\SocialMedia\Index.cshtml" />
     </ItemGroup>
 
 </Project>

@@ -1,0 +1,48 @@
+﻿@model UpdateSocialMediaDto?
+
+@{
+    ViewBag.Title = "SocialMedia Update";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Social Media Processes</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" asp-action="Update" asp-controller="SocialMedia">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Update Social Media Page</div>
+                        </div>
+                        <div class="card-body">
+                            <input type="hidden" asp-for="Id" />
+
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" class="form-control" id="Title" asp-for="Title"
+                                       placeholder="Enter Social Media Title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Url">Url</label>
+                                <input type="text" class="form-control" id="Url" asp-for="Url"
+                                       placeholder="Enter Social Media Url">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Icon">Icon</label>
+                                <input type="text" class="form-control" id="Icon" asp-for="Icon"
+                                       placeholder="Enter Social Media Icon">
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Update Social Media</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

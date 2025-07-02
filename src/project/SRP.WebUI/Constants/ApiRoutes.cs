@@ -46,4 +46,10 @@ public static class ApiRoutes
     public const string FeatureUpdate = $"{BaseUrl}Features/Update";
     public const string FeatureDelete = $"{BaseUrl}Features/Delete";
     public const string FeatureGetById = $"{BaseUrl}Features/GetById";
+    
+    public const string SocialMediaGetAll = $"{BaseUrl}SocialMedias/GetAll";
+    public const string SocialMediaAdd = $"{BaseUrl}SocialMedias/Add";
+    public const string SocialMediaUpdate = $"{BaseUrl}SocialMedias/Update";
+    public const string SocialMediaDelete = $"{BaseUrl}SocialMedias/Delete";
+    public const string SocialMediaGetById = $"{BaseUrl}SocialMedias/GetById";
 }
