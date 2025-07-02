@@ -1,0 +1,80 @@
+﻿@model CreateContactDto
+
+@{
+	ViewBag.Title = "title";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Contact Processes</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<form method="post">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">New Contact</div>
+						</div>
+						<div class="card-body">
+
+							<div class="form-group">
+								<label for="Location">Location</label>
+								<input type="text" class="form-control" id="Location" asp-for="Location"
+								       placeholder="Enter Contact Location">
+							</div>
+
+							<div class="form-group">
+								<label for="Phone">Phone</label>
+								<input type="text" class="form-control" id="Phone" asp-for="Phone"
+								       placeholder="Enter Contact Phone">
+							</div>
+
+							<div class="form-group">
+								<label for="Mail">Mail</label>
+								<input type="email" class="form-control" id="Mail" asp-for="Mail"
+								       placeholder="Enter Contact Mail">
+							</div>
+
+							<div class="form-group">
+								<label for="FooterTitle">Footer Title</label>
+								<input type="text" class="form-control" id="FooterTitle" asp-for="FooterTitle"
+								       placeholder="Enter Contact Footer Title">
+							</div>
+
+
+							<div class="form-group">
+								<label for="FooterDescription">Footer Description</label>
+								<input type="text" class="form-control" id="FooterDescription"
+								       asp-for="FooterDescription"
+								       placeholder="Enter Contact Footer Description">
+							</div>
+
+							<div class="form-group">
+								<label for="OpenDays">Open Days</label>
+								<input type="text" class="form-control" id="OpenDays" asp-for="OpenDays"
+								       placeholder="Enter Contact Open Days">
+							</div>
+
+							<div class="form-group">
+								<label for="OpenDaysDescription">Open Days Description</label>
+								<input type="text" class="form-control" id="OpenDaysDescription"
+								       asp-for="OpenDaysDescription"
+								       placeholder="Enter Contact Footer Open Days Description">
+							</div>
+
+							<div class="form-group">
+								<label for="OpenHours">Open Hours</label>
+								<input type="text" class="form-control" id="OpenHours" asp-for="OpenHours"
+								       placeholder="Enter Contact Open Hours">
+							</div>
+
+							<div class="form-group">
+								<button class="btn btn-primary">Contact Add</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

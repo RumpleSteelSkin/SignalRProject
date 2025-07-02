@@ -28,4 +28,11 @@ public static class ApiRoutes
     public const string BookingUpdate = $"{BaseUrl}Bookings/Update";
     public const string BookingDelete = $"{BaseUrl}Bookings/Delete";
     public const string BookingGetById = $"{BaseUrl}Bookings/GetById";
+    
+    
+    public const string ContactGetAll = $"{BaseUrl}Contacts/GetAll";
+    public const string ContactAdd = $"{BaseUrl}Contacts/Add";
+    public const string ContactUpdate = $"{BaseUrl}Contacts/Update";
+    public const string ContactDelete = $"{BaseUrl}Contacts/Delete";
+    public const string ContactGetById = $"{BaseUrl}Contacts/GetById";
 }

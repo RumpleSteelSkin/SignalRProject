@@ -1,0 +1,41 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using SRP.WebUI.Constants;
+using SRP.WebUI.Dtos.Contact;
+using SRP.WebUI.Hooks.Jsons;
+
+namespace SRP.WebUI.Controllers;
+
+public class ContactController(JsonService jsonService) : Controller
+{
+    public async Task<IActionResult> Index()
+    {
+        return View(await jsonService.GetAsync<ResultContactDto>(ApiRoutes.ContactGetAll));
+    }
+
+    public IActionResult Create() => View();
+
+    public async Task<IActionResult> Delete(int id)
+    {
+        await jsonService.DeleteAsync(ApiRoutes.ContactDelete, id);
+        return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> Update(int id)
+    {
+        return View(await jsonService.GetByIdAsync<UpdateContactDto>($"{ApiRoutes.ContactGetById}?id={id}"));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(CreateContactDto dto)
+    {
+        await jsonService.PostAsync(ApiRoutes.ContactAdd, dto);
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Update(UpdateContactDto dto)
+    {
+        await jsonService.UpdateAsync(ApiRoutes.ContactUpdate, dto);
+        return RedirectToAction(nameof(Index));
+    }
+}
