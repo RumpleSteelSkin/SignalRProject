@@ -10,6 +10,7 @@ using SRP.Application.Features.Products.Queries.GetCount;
 using SRP.Application.Features.Products.Queries.GetCountWithCategoryName;
 using SRP.Application.Features.Products.Queries.GetNameByMaxPrice;
 using SRP.Application.Features.Products.Queries.GetNameByMinPrice;
+using SRP.Application.Features.Products.Queries.GetTotalAverageCategoryName;
 using SRP.Application.Features.Products.Queries.GetTotalAveragePrice;
 
 namespace SRP.Presentation.Controllers
@@ -88,6 +89,13 @@ namespace SRP.Presentation.Controllers
         public async Task<IActionResult> GetNameByMinPrice()
         {
             return Ok(await mediator.Send(new ProductGetNameByMinPriceQuery()));
+        }
+
+        [HttpGet("GetTotalAverageCategoryNameQuery")]
+        public async Task<IActionResult> GetTotalAveragePriceWithCategoryName()
+        {
+            return Ok(await mediator.Send(new ProductGetTotalAverageCategoryNameQuery()
+                { CategoryName = "Hamburger" }));
         }
     }
 }
