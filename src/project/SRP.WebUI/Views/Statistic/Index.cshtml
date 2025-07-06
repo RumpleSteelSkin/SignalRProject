@@ -1,322 +1,377 @@
-﻿
+﻿@using SRP.WebUI.Constants
 @{
-    ViewBag.Title = "title";
-    Layout = "~/Views/AdminLayout/Index.cshtml";
+	ViewBag.Title = "title";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	string BaseUrl = ApiRoutes.BaseUrl;
 }
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+<script type="text/javascript">
+	const baseUrl = '@Html.Raw(BaseUrl)';
+	
+	const stats = [
+		{ receive: "categoryCount", element: "#categorycount" },
+		{ receive: "productCount", element: "#productcount" },
+		{ receive: "categoryActiveCount", element: "#categoryactivecount" },
+		{ receive: "categoryPassiveCount", element: "#categorypassivecount" },
+		{ receive: "productGetTotalAveragePriceWithCategoryHamburger", element: "#productGetTotalAveragePriceWithCategoryHamburger" },
+		{ receive: "productGetTotalAveragePriceWithCategoryDrink", element: "#productGetTotalAveragePriceWithCategoryDrink" },
+		{ receive: "productGetTotalAveragePriceQuery", element: "#productGetTotalAveragePriceQuery" },
+		{ receive: "productGetNameByMaxPriceQuery", element: "#productGetNameByMaxPriceQuery" },
+		{ receive: "productGetNameByMinPriceQuery", element: "#productGetNameByMinPriceQuery" },
+		{ receive: "productGetTotalAverageCategoryNameQueryHamburger", element: "#productGetTotalAverageCategoryNameQueryHamburger" },
+		{ receive: "orderGetCountQuery", element: "#orderGetCountQuery" },
+		{ receive: "orderGetActiveCountQuery", element: "#orderGetActiveCountQuery" },
+		{ receive: "orderGetLastPriceQuery", element: "#orderGetLastPriceQuery" },
+		{ receive: "moneyCaseGetTotalPriceQuery", element: "#moneyCaseGetTotalPriceQuery" },
+		{ receive: "orderGetTodayTotalPriceQuery", element: "#orderGetTodayTotalPriceQuery" },
+		{ receive: "menuTableGetCountQuery", element: "#menuTableGetCountQuery" },
+	
+	];
+
+	$(document).ready(() => {
+		var connection = new signalR.HubConnectionBuilder()
+			.withUrl(baseUrl + "signalrhub")
+			.build();
+		$("#connstatus").text(connection.state);
+		connection.on("ReceiveStatistics", (data) => {
+			stats.forEach(stat => {
+				if (data.hasOwnProperty(stat.receive)) {
+					$(stat.element).text(data[stat.receive]);
+				}
+			});
+		});
+		
+		connection.start().then(() => {
+			$("#connstatus").text(connection.state);
+			setInterval(() => {
+				connection.invoke("SendStatistics").catch(err => console.error(err));
+			}, 3000);
+		}).catch((error) => {
+			console.error("SignalR connection failed:", error);
+		});
+	});
+</script>
+
+
+
 <div class="content">
-<div class="container-fluid">
-<h4 class="page-title">Dashboard</h4>
-<div class="row">
-	<div class="col-md-3">
-		<div class="card card-stats card-warning">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-users"></i>
+	<div class="container-fluid">
+		<h4 class="page-title">Dynamic Statistic Page</h4>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card card-stats card-warning">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-certificate"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Category</p>
+									<h4 class="card-title" id="categorycount"></h4>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Visitors</p>
-							<h4 class="card-title">1,294</h4>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-success">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-shopping-cart"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Product</p>
+									<h4 class="card-title" id="productcount"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-danger">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-newspaper-o"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Active Category</p>
+									<h4 class="card-title" id="categoryactivecount"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-primary">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-close"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Passive Category</p>
+									<h4 class="card-title" id="categorypassivecount"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card card-stats card-warning">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-support"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Hamburger Category</p>
+									<h4 class="card-title" id="productGetTotalAveragePriceWithCategoryHamburger"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-success">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-umbrella"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Drink Category</p>
+									<h4 class="card-title" id="productGetTotalAveragePriceWithCategoryDrink"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-danger">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-money"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Average Price</p>
+									<h4 class="card-title" id="productGetTotalAveragePriceQuery"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-primary">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-star"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Most Expensive Product</p>
+									<h4 class="card-title" id="productGetNameByMaxPriceQuery"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card card-stats card-warning">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-tripadvisor"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Most Cheaper Product</p>
+									<h4 class="card-title" id="productGetNameByMinPriceQuery"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-success">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-bar-chart"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Hamburger Average Price</p>
+									<h4 class="card-title" id="productGetTotalAverageCategoryNameQueryHamburger"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-danger">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-lemon-o"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Total Order</p>
+									<h4 class="card-title" id="orderGetCountQuery"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-primary">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-heart"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Active Orders</p>
+									<h4 class="card-title" id="orderGetActiveCountQuery"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card card-stats card-warning">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-beer"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Last Order</p>
+									<h4 class="card-title" id="orderGetLastPriceQuery"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-success">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-bank"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Amount In Cash</p>
+									<h4 class="card-title" id="moneyCaseGetTotalPriceQuery"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-danger">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-newspaper-o"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Today Total Price</p>
+									<h4 class="card-title" id="orderGetTodayTotalPriceQuery"></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-primary">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-home"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Menu Table Count</p>
+									<h4 class="card-title" id="menuTableGetCountQuery"></h4>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-success">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-bar-chart"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Sales</p>
-							<h4 class="card-title">$ 1,345</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-danger">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-newspaper-o"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Subscribers</p>
-							<h4 class="card-title">1303</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-primary">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-check-circle"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Order</p>
-							<h4 class="card-title">576</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-3">
-		<div class="card card-stats card-warning">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-users"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Visitors</p>
-							<h4 class="card-title">1,294</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-success">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-bar-chart"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Sales</p>
-							<h4 class="card-title">$ 1,345</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-danger">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-newspaper-o"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Subscribers</p>
-							<h4 class="card-title">1303</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-primary">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-check-circle"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Order</p>
-							<h4 class="card-title">576</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-3">
-		<div class="card card-stats card-warning">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-users"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Visitors</p>
-							<h4 class="card-title">1,294</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-success">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-bar-chart"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Sales</p>
-							<h4 class="card-title">$ 1,345</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-danger">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-newspaper-o"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Subscribers</p>
-							<h4 class="card-title">1303</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-primary">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-check-circle"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Order</p>
-							<h4 class="card-title">576</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-3">
-		<div class="card card-stats card-warning">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-users"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Visitors</p>
-							<h4 class="card-title">1,294</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-success">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-bar-chart"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Sales</p>
-							<h4 class="card-title">$ 1,345</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-danger">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-newspaper-o"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Subscribers</p>
-							<h4 class="card-title">1303</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="card card-stats card-primary">
-			<div class="card-body ">
-				<div class="row">
-					<div class="col-5">
-						<div class="icon-big text-center">
-							<i class="la la-check-circle"></i>
-						</div>
-					</div>
-					<div class="col-7 d-flex align-items-center">
-						<div class="numbers">
-							<p class="card-category">Order</p>
-							<h4 class="card-title">576</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
 </div>

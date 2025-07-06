@@ -8,6 +8,7 @@ using SRP.Application.Features.Orders.Queries.GetAll;
 using SRP.Application.Features.Orders.Queries.GetById;
 using SRP.Application.Features.Orders.Queries.GetCount;
 using SRP.Application.Features.Orders.Queries.GetLastPrice;
+using SRP.Application.Features.Orders.Queries.GetTodayTotalPrice;
 
 namespace SRP.Presentation.Controllers;
 
@@ -61,5 +62,11 @@ public class OrdersController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> GetLastPrice()
     {
         return Ok(await mediator.Send(new OrderGetLastPriceQuery()));
+    }
+
+    [HttpGet("GetTodayTotalPrice")]
+    public async Task<IActionResult> GetTodayTotalPrice()
+    {
+        return Ok(await mediator.Send(new OrderGetTodayTotalPriceQuery()));
     }
 }
