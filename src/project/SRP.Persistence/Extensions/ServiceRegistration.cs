@@ -34,6 +34,7 @@ public static class ServiceRegistration
         services.AddScoped<ITestimonialRepository, TestimonialRepository>();
         services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IMoneyCaseRepository, MoneyCaseRepository>();
 
         #endregion
 

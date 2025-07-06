@@ -19,6 +19,7 @@ public class BaseDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<MenuTable> MenuTables { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<Order> Orders { get; set; }
+    public DbSet<MoneyCase> MoneyCases { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

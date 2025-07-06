@@ -19,4 +19,7 @@
         <HintPath>project\SRP.Domain\bin\Debug\net8.0\SRP.Domain.dll</HintPath>
       </Reference>
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="RawSQL\" />
+    </ItemGroup>
 </Project>
