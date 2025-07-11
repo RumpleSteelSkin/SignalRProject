@@ -1,0 +1,218 @@
+﻿@using SRP.WebUI.Constants
+@{
+	ViewBag.Title = "title";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	string BaseUrl = ApiRoutes.BaseUrl;
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+<script type="text/javascript">
+	const baseUrl = '@Html.Raw(BaseUrl)';
+	const stats = [
+		{receive: "moneyCaseGetTotalPriceQuery", element: "#moneyCaseGetTotalPriceQuery"},
+		{receive: "orderGetActiveCountQuery", element: "#orderGetActiveCountQuery"},
+		{receive: "menuTableGetCountQuery", element: "#menuTableGetCountQuery"},
+
+	];
+	$(document).ready(() => {
+		var connection = new signalR.HubConnectionBuilder()
+			.withUrl(baseUrl + "signalrhub")
+			.build();
+		$("#connstatus").text(connection.state);
+		connection.on("ReceiveProgress", (data) => {
+			stats.forEach(stat => {
+				if (data.hasOwnProperty(stat.receive)) {
+					$(stat.element).text(data[stat.receive]);
+				}
+			});
+		});
+
+		connection.start().then(() => {
+			$("#connstatus").text(connection.state);
+			setInterval(() => {
+				connection.invoke("SendProgress").catch(err => console.error(err));
+			}, 3000);
+		}).catch((error) => {
+			console.error("SignalR connection failed:", error);
+		});
+	});
+</script>
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Admin Statistic & Status</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row row-card-no-pd">
+					<div class="col-md-4">
+						<div class="card">
+							<div class="card-body">
+								<p class="fw-bold mt-1">Total amount in cash</p>
+								<h4><b id="moneyCaseGetTotalPriceQuery"></b></h4>
+								<a href="/Order/Add" class="btn btn-primary btn-full text-left mt-3 mb-3"><i
+										class="la la-plus"></i> New Order</a>
+							</div>
+							<div class="card-footer">
+								<ul class="nav">
+									<li class="nav-item"><a class="btn btn-default btn-link" href="/Order/Index"><i
+												class="la la-history"></i>
+											Orders</a></li>
+									<li class="nav-item ml-auto"><a class="btn btn-default btn-link" href="/ProgressBars"><i
+												class="la la-refresh"></i> Refresh</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="card">
+							<div class="card-body">
+								<div class="progress-card">
+									<div class="d-flex justify-content-between mb-1">
+										<span class="text-muted">Profit</span>
+										<span class="text-muted fw-bold"> $3K</span>
+									</div>
+									<div class="progress mb-2" style="height: 7px;">
+										<div class="progress-bar bg-success" role="progressbar" style="width: 78%"
+										     aria-valuenow="78"
+										     aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+										     data-placement="top"
+										     title="78%"></div>
+									</div>
+								</div>
+								<div class="progress-card">
+									<div class="d-flex justify-content-between mb-1">
+										<span class="text-muted">Orders</span>
+										<span class="text-muted fw-bold"> 576</span>
+									</div>
+									<div class="progress mb-2" style="height: 7px;">
+										<div class="progress-bar bg-info" role="progressbar" style="width: 65%"
+										     aria-valuenow="60"
+										     aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+										     data-placement="top"
+										     title="65%"></div>
+									</div>
+								</div>
+								<div class="progress-card">
+									<div class="d-flex justify-content-between mb-1">
+										<span class="text-muted">Tasks Complete</span>
+										<span class="text-muted fw-bold"> 70%</span>
+									</div>
+									<div class="progress mb-2" style="height: 7px;">
+										<div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
+										     aria-valuenow="70"
+										     aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+										     data-placement="top"
+										     title="70%"></div>
+									</div>
+								</div>
+								<div class="progress-card">
+									<div class="d-flex justify-content-between mb-1">
+										<span class="text-muted">Open Rate</span>
+										<span class="text-muted fw-bold"> 60%</span>
+									</div>
+									<div class="progress mb-2" style="height: 7px;">
+										<div class="progress-bar bg-warning" role="progressbar" style="width: 60%"
+										     aria-valuenow="60"
+										     aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+										     data-placement="top"
+										     title="60%"></div>
+									</div>
+								</div>
+								<div class="progress-card">
+									<div class="d-flex justify-content-between mb-1">
+										<span class="text-muted">Open Rate</span>
+										<span class="text-muted fw-bold"> 60%</span>
+									</div>
+									<div class="progress mb-2" style="height: 7px;">
+										<div class="progress-bar bg-warning" role="progressbar" style="width: 60%"
+										     aria-valuenow="60"
+										     aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+										     data-placement="top"
+										     title="60%"></div>
+									</div>
+								</div>
+								<div class="progress-card">
+									<div class="d-flex justify-content-between mb-1">
+										<span class="text-muted">Open Rate</span>
+										<span class="text-muted fw-bold"> 60%</span>
+									</div>
+									<div class="progress mb-2" style="height: 7px;">
+										<div class="progress-bar bg-warning" role="progressbar" style="width: 60%"
+										     aria-valuenow="60"
+										     aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+										     data-placement="top"
+										     title="60%"></div>
+									</div>
+								</div>
+								<div class="progress-card">
+									<div class="d-flex justify-content-between mb-1">
+										<span class="text-muted">Open Rate</span>
+										<span class="text-muted fw-bold"> 60%</span>
+									</div>
+									<div class="progress mb-2" style="height: 7px;">
+										<div class="progress-bar bg-warning" role="progressbar" style="width: 60%"
+										     aria-valuenow="60"
+										     aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+										     data-placement="top"
+										     title="60%"></div>
+									</div>
+								</div>
+								<div class="progress-card">
+									<div class="d-flex justify-content-between mb-1">
+										<span class="text-muted">Open Rate</span>
+										<span class="text-muted fw-bold"> 60%</span>
+									</div>
+									<div class="progress mb-2" style="height: 7px;">
+										<div class="progress-bar bg-warning" role="progressbar" style="width: 60%"
+										     aria-valuenow="60"
+										     aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
+										     data-placement="top"
+										     title="60%"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="card card-stats">
+							<div class="card-body">
+								<p class="fw-bold mt-1">Statistic</p>
+								<div class="row">
+									<div class="col-5">
+										<div class="icon-big text-center icon-warning">
+											<i class="la la-pie-chart text-warning"></i>
+										</div>
+									</div>
+									<div class="col-7 d-flex align-items-center">
+										<div class="numbers">
+											<p class="card-category">Active Orders</p>
+											<h4 class="card-title" id="orderGetActiveCountQuery"></h4>
+										</div>
+									</div>
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="col-5">
+										<div class="icon-big text-center">
+											<i class="la la-heart-o text-primary"></i>
+										</div>
+									</div>
+									<div class="col-7 d-flex align-items-center">
+										<div class="numbers">
+											<p class="card-category">Table Count</p>
+											<h4 class="card-title" id="menuTableGetCountQuery"></h4>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -42,4 +42,14 @@ public class SignalRHub(IMediator mediator) : Hub
             ["menuTableGetCountQuery"] = await mediator.Send(new MenuTableGetCountQuery())
         });
     }
+
+    public async Task SendProgress()
+    {
+        await Clients.All.SendAsync("ReceiveProgress", new Dictionary<string, object>
+        {
+            ["moneyCaseGetTotalPriceQuery"] = $"{await mediator.Send(new MoneyCaseGetTotalPriceQuery()):0.00} ₺",
+            ["orderGetActiveCountQuery"] = await mediator.Send(new OrderGetActiveCountQuery()),
+            ["menuTableGetCountQuery"] = await mediator.Send(new MenuTableGetCountQuery()),
+        });
+    }
 }
