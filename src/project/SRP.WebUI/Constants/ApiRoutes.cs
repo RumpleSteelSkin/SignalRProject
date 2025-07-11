@@ -33,6 +33,7 @@
             public const string GetTotalAveragePrice = $"{Prefix}GetTotalAveragePrice";
             public const string GetNameByMaxPrice = $"{Prefix}GetNameByMaxPrice";
             public const string GetNameByMinPrice = $"{Prefix}GetNameByMinPrice";
+            public const string GetAllWithNotNullImageAndCategoryNames = $"{Prefix}GetAllWithNotNullImageAndCategoryNames";
         }
 
         public static class About

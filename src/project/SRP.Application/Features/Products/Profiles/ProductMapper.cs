@@ -3,6 +3,7 @@ using SRP.Application.Features.Products.Commands.Add;
 using SRP.Application.Features.Products.Commands.Update;
 using SRP.Application.Features.Products.Queries.GetAll;
 using SRP.Application.Features.Products.Queries.GetAllWithCategoryName;
+using SRP.Application.Features.Products.Queries.GetAllWithNotNullImageAndCategoryNames;
 using SRP.Application.Features.Products.Queries.GetById;
 using SRP.Domain.Models;
 
@@ -17,5 +18,6 @@ public class ProductMapper : Profile
         CreateMap<Product, ProductGetAllQueryResponseDto>();
         CreateMap<Product, ProductGetByIdQueryResponseDto>();
         CreateMap<Product, ProductGetAllWithCategoryNameQueryResponseDto>();
+        CreateMap<Product, ProductGetAllWithNotNullImageAndCategoryNamesQueryResponseDto>();
     }
 }

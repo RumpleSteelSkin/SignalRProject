@@ -5,6 +5,7 @@ using SRP.Application.Features.Products.Commands.Delete;
 using SRP.Application.Features.Products.Commands.Update;
 using SRP.Application.Features.Products.Queries.GetAll;
 using SRP.Application.Features.Products.Queries.GetAllWithCategoryName;
+using SRP.Application.Features.Products.Queries.GetAllWithNotNullImageAndCategoryNames;
 using SRP.Application.Features.Products.Queries.GetById;
 using SRP.Application.Features.Products.Queries.GetCount;
 using SRP.Application.Features.Products.Queries.GetCountWithCategoryName;
@@ -94,7 +95,12 @@ public class ProductsController(IMediator mediator) : ControllerBase
     [HttpGet("GetTotalAverageCategoryNameQuery")]
     public async Task<IActionResult> GetTotalAveragePriceWithCategoryName()
     {
-        return Ok(await mediator.Send(new ProductGetTotalAverageCategoryNameQuery { CategoryName = "Hamburger" }));
+        return Ok(await mediator.Send(new ProductGetTotalAverageCategoryNameQuery { CategoryName = "Burger" }));
     }
-    
+
+    [HttpGet("GetAllWithNotNullImageAndCategoryNames")]
+    public async Task<IActionResult> GetAllWithNotNullImageAndCategoryNames([FromQuery] string[]? categories = null)
+    {
+        return Ok(await mediator.Send(new ProductGetAllWithNotNullImageAndCategoryNamesQuery { CategoryNames = categories }));
+    }
 }

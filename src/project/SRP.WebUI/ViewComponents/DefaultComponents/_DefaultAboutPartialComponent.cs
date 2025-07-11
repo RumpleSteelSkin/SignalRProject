@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SRP.WebUI.Constants;
+using SRP.WebUI.Dtos.About;
+using SRP.WebUI.Hooks.Jsons;
 
 namespace SRP.WebUI.ViewComponents.DefaultComponents;
 
-public class _DefaultAboutPartialComponent:ViewComponent
+public class _DefaultAboutPartialComponent(JsonService jsonService) : ViewComponent
 {
-    public IViewComponentResult Invoke()
+    public async Task<IViewComponentResult> InvokeAsync()
     {
-        return View();
+        return View(await jsonService.GetAsync<ResultAboutDto>(ApiRoutes.About.GetAll));
     }
 }

@@ -15,7 +15,20 @@ public class JsonService(IHttpClientFactory factory)
         var content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<ICollection<T>>(content);
     }
+    public async Task<ICollection<T>?> GetAsyncWithQuery<T>(string baseUrl, Dictionary<string, IEnumerable<string>> queryParams)
+    {
+        var query = string.Join("&", queryParams
+            .SelectMany(kvp => kvp.Value.Select(value => $"{kvp.Key}={Uri.EscapeDataString(value)}")));
 
+        var urlWithQuery = $"{baseUrl}?{query}";
+
+        var response = await _client.GetAsync(urlWithQuery);
+        if (!response.IsSuccessStatusCode) return null;
+
+        var content = await response.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<ICollection<T>>(content);
+    }
+    
     public async Task PostAsync<TRequest>(string url, TRequest data)
     {
         var jsonData = JsonConvert.SerializeObject(data);

@@ -1,11 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SRP.WebUI.Constants;
+using SRP.WebUI.Dtos.Contact;
+using SRP.WebUI.Dtos.SocialMedia;
+using SRP.WebUI.Hooks.Jsons;
+using SRP.WebUI.ViewModels;
 
 namespace SRP.WebUI.ViewComponents.UILayoutComponents;
 
-public class _UILayoutFooterPartialComponent:ViewComponent
+public class _UILayoutFooterPartialComponent(JsonService jsonService) : ViewComponent
 {
-    public IViewComponentResult Invoke()
+    public async Task<IViewComponentResult> InvokeAsync()
     {
-        return View();
+        return View(new ContactWithSocialViewModel
+        {
+            Contacts = await jsonService.GetAsync<ResultContactDto>(ApiRoutes.Contact.GetAll),
+            SocialMedias = await jsonService.GetAsync<ResultSocialMediaDto>(ApiRoutes.SocialMedia.GetAll)
+        });
     }
 }
