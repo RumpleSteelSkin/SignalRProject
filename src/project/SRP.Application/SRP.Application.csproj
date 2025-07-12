@@ -9,6 +9,7 @@
     <ItemGroup>
         <Folder Include="Constants\"/>
         <Folder Include="Features\Abouts\Rules\"/>
+        <Folder Include="Features\Baskets\Rules\" />
         <Folder Include="Features\Bookings\Rules\"/>
         <Folder Include="Features\Categories\Rules\"/>
         <Folder Include="Features\Contacts\Rules\"/>
