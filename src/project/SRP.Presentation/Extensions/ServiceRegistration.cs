@@ -1,4 +1,5 @@
-﻿using SRP.Presentation.Middlewares;
+﻿using System.Text.Json.Serialization;
+using SRP.Presentation.Middlewares;
 
 namespace SRP.Presentation.Extensions;
 
@@ -7,7 +8,7 @@ public static class ServiceRegistration
     public static IServiceCollection AddPresentationServices(this IServiceCollection services,
         IConfiguration configuration)
     {
-        #region Default Services
+        #region Default API Services
 
         services.AddControllers();
         services.AddEndpointsApiExplorer();
@@ -90,6 +91,13 @@ public static class ServiceRegistration
         #region Global Exception Handling Services
 
         services.AddExceptionHandler<HttpExceptionHandler>();
+
+        #endregion
+
+        #region JSON Cycle Disable
+
+        services.AddControllersWithViews()
+            .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
         #endregion
 

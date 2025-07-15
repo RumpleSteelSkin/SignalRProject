@@ -7,6 +7,7 @@ public static class AppRegistration
     public static WebApplication AddPresentationApp(this WebApplication app)
     {
         app.UseExceptionHandler(_ => { }); //First Place "Always"
+        
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
@@ -16,14 +17,18 @@ public static class AppRegistration
         app.UseHttpsRedirection();
 
         app.UseRouting();
+        
         app.UseCors("AllowAll");
+        
         //Warning: Priority...
         app.UseAuthentication(); //1st
         app.UseAuthorization(); //2nd
+        
         app.MapControllers();
+        
         app.MapHub<SignalRHub>("/signalrhub");
+        
         app.Run();
-
         return app;
     }
 }

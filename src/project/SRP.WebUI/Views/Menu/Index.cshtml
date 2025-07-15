@@ -116,20 +116,21 @@
 
 @await Component.InvokeAsync("_UILayoutFooterPartialComponent")
 @await Component.InvokeAsync("_UILayoutScriptPartialComponent")
-
 <script>
   function showproductid(value) {
     var id = value;
     $.ajax({
       type: 'post',
       data: {item: id},
+      url: "/Menu/AddBasket/" + id,
       contentType: 'application/json',
       success: function () {
-        swal("Product ID: " + id, "Your choice", "success");
+        swal("Product ID: " + id, "Your choice added basket!", "success");
       }
     });
   }
 </script>
 <script src="/feane/js/sweetalert2.js"></script>
+
 </body>
 </html>

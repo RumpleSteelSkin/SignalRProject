@@ -37,11 +37,4 @@
         <ProjectReference Include="..\..\core\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj"/>
         <ProjectReference Include="..\..\core\Core.Persistence\Core.Persistence.csproj"/>
     </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="SRP.Domain">
-        <HintPath>..\SRP.Domain\bin\Debug\net8.0\SRP.Domain.dll</HintPath>
-      </Reference>
-    </ItemGroup>
-
 </Project>

@@ -1,9 +1,8 @@
-﻿using SRP.Domain.Models;
+﻿namespace SRP.WebUI.Dtos.Basket;
 
-namespace SRP.Application.Features.Baskets.Queries.GetById;
-
-public class BasketGetByIdQueryResponseDto
+public class UpdateBasketDto
 {
+    public int Id { get; set; }
     public decimal Price { get; set; }
     public int Count { get; set; }
     public decimal TotalPrice { get; set; }
