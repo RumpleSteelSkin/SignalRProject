@@ -1,61 +1,94 @@
-﻿@model ICollection<ResultBookingDto>?
+﻿@using SRP.WebUI.Constants
+@model ICollection<ResultBookingDto>?
 @{
-    ViewBag.Title = "title";
-    Layout = "~/Views/AdminLayout/Index.cshtml";
-    int count = 0;
+	ViewBag.Title = "title";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
+	string BaseUrl = ApiRoutes.BaseUrl;
 }
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script type="text/javascript">
+	const baseUrl = '@Html.Raw(BaseUrl)';
+	$(document).ready(() => {
+		var connection = new signalR.HubConnectionBuilder().withUrl(baseUrl + "signalrhub").build();
+
+		$("#connstatus").text(connection.state);
+
+		connection.start().then(() => {
+			$("#connstatus").text(connection.state);
+			setInterval(() => {
+				connection.invoke("GetBookingList");
+			}, 5000);
+		}).catch((error) => {
+			console.error(error);
+		});
+
+		connection.on("ReceiveBookingList", (value) => {
+			let tableHtml = `
+				<table class="table mt-3">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Booking Name</th>
+							<th scope="col">Phone</th>
+							<th scope="col">Mail</th>
+							<th scope="col">Description</th>
+							<th scope="col">Person Count</th>
+							<th scope="col">Date</th>
+							<th scope="col">Reservation Status</th>
+							<th scope="col">Delete</th>
+							<th scope="col">Update</th>
+						</tr>
+					</thead>
+					<tbody>`;
+
+			value.forEach((item, index) => {
+				tableHtml += `
+					<tr>
+						<td>${index + 1}</td>
+						<td>${item.name}</td>
+						<td>${item.phone}</td>
+						<td>${item.mail}</td>
+						<td>${item.description}</td>
+						<td>${item.personCount}</td>
+						<td>${item.date}</td>
+						<td>Reservation Accepted</td>
+						<td><a href="/Booking/Delete/${item.bookingid}" class="btn btn-outline-danger">Delete</a></td>
+						<td><a href="/Booking/Update/${item.bookingid}" class="btn btn-outline-success">Update</a></td>
+					</tr>`;
+			});
+
+			tableHtml += `</tbody></table>`;
+			$("#bookingList").html(tableHtml);
+		});
+	});
+</script>
+
 
 <div class="content">
-    <div class="container-fluid">
-        <h4 class="page-title">Booking Process</h4>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Booking List</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-sub">
-                            You can perform transactions related to the Booking below.
-                        </div>
-                        <table class="table mt-3">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Booking Name</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Mail</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">PersonCount</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Reservation Status</th>
-                                <th scope="col">Delete</th>
-                                <th scope="col">Update</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach(var item in Model)
-                            {
-                                count++;
-                                <tr>
-                                    <td>@count</td>
-                                    <td>@item.Name</td>
-                                    <td>@item.Phone</td>
-                                    <td>@item.Mail</td>
-                                    <td>@item.Description</td>
-                                    <td>@item.PersonCount</td>
-                                    <td>@item.Date</td>
-                                    <td>Reservation Accepted</td>
-                                    <td><a href="/Booking/Delete/@item.Id" class="btn btn-outline-danger">Delete</a></td>
-                                    <td><a href="/Booking/Update/@item.Id" class="btn btn-outline-success">Update</a></td>
-                                </tr>
-                            }
-                            </tbody>
-                        </table>
-                        <td><a href="/Booking/Create" class="btn btn-outline-primary">New</a></td>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container-fluid">
+		<h4 class="page-title">Booking Process</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Booking List</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							You can perform transactions related to the Booking below.
+						</div>
+						<div id="bookingList"></div>
+						<td><a href="/Booking/Create" class="btn btn-outline-primary">New</a></td>
+						<div class="col-md-8">
+							<ul class="list-group" id="bookingList"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

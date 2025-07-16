@@ -7,29 +7,38 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
 <script type="text/javascript">
 	const baseUrl = '@Html.Raw(BaseUrl)';
-	
+
 	const stats = [
-		{ receive: "categoryCount", element: "#categorycount" },
-		{ receive: "productCount", element: "#productcount" },
-		{ receive: "categoryActiveCount", element: "#categoryactivecount" },
-		{ receive: "categoryPassiveCount", element: "#categorypassivecount" },
-		{ receive: "productGetTotalAveragePriceWithCategoryHamburger", element: "#productGetTotalAveragePriceWithCategoryHamburger" },
-		{ receive: "productGetTotalAveragePriceWithCategoryDrink", element: "#productGetTotalAveragePriceWithCategoryDrink" },
-		{ receive: "productGetTotalAveragePriceQuery", element: "#productGetTotalAveragePriceQuery" },
-		{ receive: "productGetNameByMaxPriceQuery", element: "#productGetNameByMaxPriceQuery" },
-		{ receive: "productGetNameByMinPriceQuery", element: "#productGetNameByMinPriceQuery" },
-		{ receive: "productGetTotalAverageCategoryNameQueryHamburger", element: "#productGetTotalAverageCategoryNameQueryHamburger" },
-		{ receive: "orderGetCountQuery", element: "#orderGetCountQuery" },
-		{ receive: "orderGetActiveCountQuery", element: "#orderGetActiveCountQuery" },
-		{ receive: "orderGetLastPriceQuery", element: "#orderGetLastPriceQuery" },
-		{ receive: "moneyCaseGetTotalPriceQuery", element: "#moneyCaseGetTotalPriceQuery" },
-		{ receive: "orderGetTodayTotalPriceQuery", element: "#orderGetTodayTotalPriceQuery" },
-		{ receive: "menuTableGetCountQuery", element: "#menuTableGetCountQuery" },
-	
+		{receive: "categoryCount", element: "#categorycount"},
+		{receive: "productCount", element: "#productcount"},
+		{receive: "categoryActiveCount", element: "#categoryactivecount"},
+		{receive: "categoryPassiveCount", element: "#categorypassivecount"},
+		{
+			receive: "productGetTotalAveragePriceWithCategoryHamburger",
+			element: "#productGetTotalAveragePriceWithCategoryHamburger"
+		},
+		{
+			receive: "productGetTotalAveragePriceWithCategoryDrink",
+			element: "#productGetTotalAveragePriceWithCategoryDrink"
+		},
+		{receive: "productGetTotalAveragePriceQuery", element: "#productGetTotalAveragePriceQuery"},
+		{receive: "productGetNameByMaxPriceQuery", element: "#productGetNameByMaxPriceQuery"},
+		{receive: "productGetNameByMinPriceQuery", element: "#productGetNameByMinPriceQuery"},
+		{
+			receive: "productGetTotalAverageCategoryNameQueryHamburger",
+			element: "#productGetTotalAverageCategoryNameQueryHamburger"
+		},
+		{receive: "orderGetCountQuery", element: "#orderGetCountQuery"},
+		{receive: "orderGetActiveCountQuery", element: "#orderGetActiveCountQuery"},
+		{receive: "orderGetLastPriceQuery", element: "#orderGetLastPriceQuery"},
+		{receive: "moneyCaseGetTotalPriceQuery", element: "#moneyCaseGetTotalPriceQuery"},
+		{receive: "orderGetTodayTotalPriceQuery", element: "#orderGetTodayTotalPriceQuery"},
+		{receive: "menuTableGetCountQuery", element: "#menuTableGetCountQuery"},
+
 	];
 
 	$(document).ready(() => {
@@ -44,7 +53,7 @@
 				}
 			});
 		});
-		
+
 		connection.start().then(() => {
 			$("#connstatus").text(connection.state);
 			setInterval(() => {

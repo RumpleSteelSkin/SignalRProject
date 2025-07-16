@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.SignalR;
+using SRP.Application.Features.Bookings.Queries.GetAll;
 using SRP.Application.Features.Categories.Queries.GetActiveCount;
 using SRP.Application.Features.Categories.Queries.GetCount;
 using SRP.Application.Features.Categories.Queries.GetPassiveCount;
@@ -28,12 +29,16 @@ public class SignalRHub(IMediator mediator) : Hub
             ["categoryActiveCount"] = await mediator.Send(new CategoryGetActiveCountQuery()),
             ["categoryPassiveCount"] = await mediator.Send(new CategoryGetPassiveCountQuery()),
             ["productCount"] = await mediator.Send(new ProductGetCountQuery()),
-            ["productGetTotalAveragePriceWithCategoryHamburger"] = await mediator.Send(new ProductGetCountWithCategoryName{CategoryName = "Burger"}),
-            ["productGetTotalAveragePriceWithCategoryDrink"] = await mediator.Send(new ProductGetCountWithCategoryName{CategoryName = "Drink"}),
-            ["productGetTotalAveragePriceQuery"] = $"{await mediator.Send(new ProductGetTotalAveragePriceQuery()):0.00} ₺",
+            ["productGetTotalAveragePriceWithCategoryHamburger"] =
+                await mediator.Send(new ProductGetCountWithCategoryName { CategoryName = "Burger" }),
+            ["productGetTotalAveragePriceWithCategoryDrink"] = await mediator.Send(new ProductGetCountWithCategoryName
+                { CategoryName = "Drink" }),
+            ["productGetTotalAveragePriceQuery"] =
+                $"{await mediator.Send(new ProductGetTotalAveragePriceQuery()):0.00} ₺",
             ["productGetNameByMaxPriceQuery"] = await mediator.Send(new ProductGetNameByMaxPriceQuery()),
             ["productGetNameByMinPriceQuery"] = await mediator.Send(new ProductGetNameByMinPriceQuery()),
-            ["productGetTotalAverageCategoryNameQueryHamburger"] = $"{await mediator.Send(new ProductGetTotalAverageCategoryNameQuery{ CategoryName = "Burger" }):0.00} ₺",
+            ["productGetTotalAverageCategoryNameQueryHamburger"] =
+                $"{await mediator.Send(new ProductGetTotalAverageCategoryNameQuery { CategoryName = "Burger" }):0.00} ₺",
             ["orderGetCountQuery"] = await mediator.Send(new OrderGetCountQuery()),
             ["orderGetActiveCountQuery"] = await mediator.Send(new OrderGetActiveCountQuery()),
             ["orderGetLastPriceQuery"] = $"{await mediator.Send(new OrderGetLastPriceQuery()):0.00} ₺",
@@ -43,7 +48,7 @@ public class SignalRHub(IMediator mediator) : Hub
         });
     }
 
-    
+
     public async Task SendProgress()
     {
         await Clients.All.SendAsync("ReceiveProgress", new Dictionary<string, object>
@@ -52,5 +57,10 @@ public class SignalRHub(IMediator mediator) : Hub
             ["orderGetActiveCountQuery"] = await mediator.Send(new OrderGetActiveCountQuery()),
             ["menuTableGetCountQuery"] = await mediator.Send(new MenuTableGetCountQuery()),
         });
+    }
+
+    public async Task GetBookingList()
+    {
+        await Clients.All.SendAsync("ReceiveBookingList", await mediator.Send(new BookingGetAllQuery()));
     }
 }
