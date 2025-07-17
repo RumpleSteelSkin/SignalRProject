@@ -13,5 +13,15 @@
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7"/>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages\Shared\Components\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Views\Notifications\Create.cshtml" />
+      <AdditionalFiles Include="Views\Notifications\Index.cshtml" />
+      <AdditionalFiles Include="Views\Notifications\Update.cshtml" />
+    </ItemGroup>
     
 </Project>

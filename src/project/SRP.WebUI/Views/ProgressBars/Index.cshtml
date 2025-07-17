@@ -1,13 +1,10 @@
-﻿@using SRP.WebUI.Constants
+﻿
 @{
 	ViewBag.Title = "title";
 	Layout = "~/Views/AdminLayout/Index.cshtml";
 	string BaseUrl = ApiRoutes.BaseUrl;
 }
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-<script src="lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+@await Component.InvokeAsync("_DefaultSignalRScriptsPartialComponent")
 
 <script type="text/javascript">
 	const baseUrl = '@Html.Raw(BaseUrl)';

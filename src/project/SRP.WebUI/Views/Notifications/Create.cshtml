@@ -1,0 +1,46 @@
+﻿@model CreateNotificationDto
+
+@{
+	ViewBag.Title = "title";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Notification Processes</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<form method="post">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">New Notification</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label for="Description">Description</label>
+								<input type="text" class="form-control" id="Description" asp-for="Description"
+								       placeholder="Enter Notification Description">
+							</div>
+
+							<div class="form-group">
+								<label for="Icon">Icon</label>
+								<input type="text" class="form-control" id="Icon" asp-for="Icon"
+								       placeholder="Enter Notification Icon">
+							</div>
+
+							<div class="form-group">
+								<label for="Type">Type</label>
+								<input type="text" class="form-control" id="Type" asp-for="Type"
+								       placeholder="Enter Notification Type">
+							</div>
+
+							<div class="form-group">
+								<button class="btn btn-primary">Notification Add</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

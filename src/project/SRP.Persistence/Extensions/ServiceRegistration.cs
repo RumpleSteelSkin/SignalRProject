@@ -37,6 +37,7 @@ public static class ServiceRegistration
         services.AddScoped<IMoneyCaseRepository, MoneyCaseRepository>();
         services.AddScoped<IMenuTableRepository, MenuTableRepository>();
         services.AddScoped<IBasketRepository, BasketRepository>();
+        services.AddScoped<INotificationRepository, NotificationRepository>();
 
         #endregion
 

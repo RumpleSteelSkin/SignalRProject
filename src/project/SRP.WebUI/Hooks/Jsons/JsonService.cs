@@ -15,6 +15,12 @@ public class JsonService(IHttpClientFactory factory)
         var content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<ICollection<T>>(content);
     }
+    public async Task FireAndForgetPutAsync<TRequest>(string url, TRequest data)
+    {
+        var jsonData = JsonConvert.SerializeObject(data);
+        var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+        await _client.PutAsync(url, content);
+    }
     public async Task<ICollection<T>?> GetAsyncWithQuery<T>(string baseUrl, Dictionary<string, IEnumerable<string>> queryParams)
     {
         var query = string.Join("&", queryParams

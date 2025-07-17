@@ -1,0 +1,53 @@
+﻿@model UpdateNotificationDto?
+
+@{
+    ViewBag.Title = "Notification Update";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Notification Processes</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" asp-action="Update" asp-controller="Notifications">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Update Notification Page</div>
+                        </div>
+                        <div class="card-body">
+                            <input type="hidden" asp-for="Id" />
+                            <div class="form-group">
+                                <label for="Description">Description</label>
+                                <input type="text" class="form-control" id="Description" asp-for="Description"
+                                       placeholder="Enter Notification Description">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Icon">Icon</label>
+                                <input type="text" class="form-control" id="Icon" asp-for="Icon"
+                                       placeholder="Enter Notification Icon">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Type">Type</label>
+                                <input type="text" class="form-control" id="Type" asp-for="Type"
+                                       placeholder="Enter Notification Type">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Date">Date</label>
+                                <input type="date" class="form-control" id="Date" asp-for="Date"
+                                       placeholder="Enter Notification Date">
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Update Notification</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
