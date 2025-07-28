@@ -21,6 +21,7 @@ public class BaseDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<Order> Orders { get; set; }
     public DbSet<MoneyCase> MoneyCases { get; set; }
     public DbSet<Notification> Notifications { get; set; }
+    public DbSet<Message> Messages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

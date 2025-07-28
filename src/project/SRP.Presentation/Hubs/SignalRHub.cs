@@ -80,4 +80,9 @@ public class SignalRHub(IMediator mediator) : Hub
     {
         await Clients.All.SendAsync("ReceiveMenuTableStatus", await mediator.Send(new MenuTableGetAllQuery()));
     }
+
+    public async Task SendMessage(string user, string message)
+    {
+        await Clients.All.SendAsync("ReceiveMessage", user, message);
+    }
 }

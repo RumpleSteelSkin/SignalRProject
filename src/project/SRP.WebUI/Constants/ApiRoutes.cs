@@ -49,6 +49,19 @@
             public const string GetById = $"{Prefix}GetById";
             public const string GetCount = $"{Prefix}GetCount";
         }
+
+        public static class Message
+        {
+            private const string Prefix = $"{BaseUrl}api/Messages/";
+
+            public const string GetAll = $"{Prefix}GetAll";
+            public const string Add = $"{Prefix}Add";
+            public const string Update = $"{Prefix}Update";
+            public const string Delete = $"{Prefix}Delete";
+            public const string GetById = $"{Prefix}GetById";
+            public const string GetCount = $"{Prefix}GetCount";
+        }
+
         public static class MenuTable
         {
             private const string Prefix = $"{BaseUrl}api/MenuTables/";
@@ -60,6 +73,7 @@
             public const string GetById = $"{Prefix}GetById";
             public const string GetCount = $"{Prefix}GetCount";
         }
+
         public static class Basket
         {
             private const string Prefix = $"{BaseUrl}api/Baskets/";
@@ -145,7 +159,7 @@
             public const string GetById = $"{Prefix}GetById";
             public const string GetCount = $"{Prefix}GetCount";
         }
-        
+
         public static class Notification
         {
             private const string Prefix = $"{BaseUrl}api/Notifications/";

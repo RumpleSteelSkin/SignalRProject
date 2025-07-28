@@ -16,6 +16,7 @@
         <Folder Include="Features\Discounts\Rules\"/>
         <Folder Include="Features\Features\Rules\"/>
         <Folder Include="Features\MenuTables\Rules\" />
+        <Folder Include="Features\Messages\Rules\" />
         <Folder Include="Features\MoneyCases\Rules\" />
         <Folder Include="Features\Notifications\Rules\" />
         <Folder Include="Features\OrderDetails\Rules\" />
