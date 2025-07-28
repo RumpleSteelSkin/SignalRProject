@@ -8,4 +8,6 @@ public class MenuTableUpdateCommand : IRequest<string>, ITransactional, ILoggabl
 {
     public int Id { get; set; }
     public string? Name { get; set; }
+
+    public bool Status { get; set; }
 }

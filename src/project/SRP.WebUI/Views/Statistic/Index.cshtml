@@ -6,9 +6,9 @@
 @await Component.InvokeAsync("_DefaultSignalRScriptsPartialComponent")
 
 <script type="text/javascript">
-	const baseUrl = '@Html.Raw(BaseUrl)';
+	const apiBaseUrl = '@Html.Raw(BaseUrl)';
 
-	const stats = [
+	const constats = [
 		{receive: "categoryCount", element: "#categorycount"},
 		{receive: "productCount", element: "#productcount"},
 		{receive: "categoryActiveCount", element: "#categoryactivecount"},
@@ -39,11 +39,11 @@
 
 	$(document).ready(() => {
 		var connection = new signalR.HubConnectionBuilder()
-			.withUrl(baseUrl + "signalrhub")
+			.withUrl(apiBaseUrl + "signalrhub")
 			.build();
 		$("#connstatus").text(connection.state);
 		connection.on("ReceiveStatistics", (data) => {
-			stats.forEach(stat => {
+			constats.forEach(stat => {
 				if (data.hasOwnProperty(stat.receive)) {
 					$(stat.element).text(data[stat.receive]);
 				}

@@ -1,6 +1,6 @@
-﻿namespace SRP.Application.Features.MenuTables.Queries.GetAll;
+﻿namespace SRP.WebUI.Dtos.MenuTables;
 
-public class MenuTableGetAllQueryResponseDto
+public class UpdateMenuTableDto
 {
     public int Id { get; set; }
     public string? Name { get; set; }

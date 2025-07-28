@@ -19,6 +19,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <AdditionalFiles Include="Views\MenuTables\Create.cshtml" />
+      <AdditionalFiles Include="Views\MenuTables\Index.cshtml" />
+      <AdditionalFiles Include="Views\MenuTables\Update.cshtml" />
       <AdditionalFiles Include="Views\Notifications\Create.cshtml" />
       <AdditionalFiles Include="Views\Notifications\Index.cshtml" />
       <AdditionalFiles Include="Views\Notifications\Update.cshtml" />
