@@ -4,6 +4,14 @@
     {
         public const string BaseUrl = "http://localhost:5161/";
 
+        public static class Auth
+        {
+            private const string Prefix = $"{BaseUrl}api/Authentications/";
+            public const string Register = $"{Prefix}Register";
+            public const string Login = $"{Prefix}Login";
+        }
+        
+        
         public static class Category
         {
             private const string Prefix = $"{BaseUrl}api/Categories/";

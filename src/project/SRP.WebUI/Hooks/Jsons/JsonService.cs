@@ -7,7 +7,6 @@ namespace SRP.WebUI.Hooks.Jsons;
 public class JsonService(IHttpClientFactory factory)
 {
     private readonly HttpClient _client = factory.CreateClient();
-
     public async Task<ICollection<T>?> GetAsync<T>(string url)
     {
         var response = await _client.GetAsync(url);

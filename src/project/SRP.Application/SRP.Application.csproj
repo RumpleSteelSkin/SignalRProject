@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Constants\"/>
         <Folder Include="Features\Abouts\Rules\"/>
         <Folder Include="Features\Baskets\Rules\" />
         <Folder Include="Features\Bookings\Rules\"/>

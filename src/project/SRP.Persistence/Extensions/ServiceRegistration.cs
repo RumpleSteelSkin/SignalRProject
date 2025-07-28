@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SRP.Application.Services.Repositories;
+using SRP.Domain.Models;
 using SRP.Persistence.Contexts;
 using SRP.Persistence.Repositories;
 

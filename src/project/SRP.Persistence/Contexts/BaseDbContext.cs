@@ -1,10 +1,11 @@
 ﻿using System.Reflection;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SRP.Domain.Models;
 
 namespace SRP.Persistence.Contexts;
 
-public class BaseDbContext(DbContextOptions options) : DbContext(options)
+public class BaseDbContext(DbContextOptions options) : IdentityDbContext<AppUser, AppRole, int>(options)
 {
     public DbSet<About> Abouts { get; set; }
     public DbSet<Booking> Bookings { get; set; }

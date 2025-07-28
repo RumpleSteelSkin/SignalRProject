@@ -9,6 +9,7 @@ using Core.CrossCuttingConcerns.Loggers.Serilog.Loggers;
 using Core.CrossCuttingConcerns.Loggers.Serilog.ServiceBase;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using SRP.Application.Services.JwtServices;
 
 namespace SRP.Application.Extensions;
 
@@ -24,7 +25,7 @@ public static class ServiceRegistration
 
         #region JWT Services
 
-        //services.AddScoped<IJwtService, JwtService>();
+        services.AddScoped<IJwtService, JwtService>();
 
         #endregion
 
