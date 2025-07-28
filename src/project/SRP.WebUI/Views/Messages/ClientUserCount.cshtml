@@ -1,0 +1,36 @@
+﻿@{
+	Layout = null;
+    string BaseUrl = ApiRoutes.BaseUrl;
+}
+<html>
+@await Component.InvokeAsync("_DefaultSignalRScriptsPartialComponent")
+@await Component.InvokeAsync("_UILayoutHeaderPartialComponent")
+<body>
+@await Component.InvokeAsync("_UILayoutNavbarPartialComponent")
+  <script type="text/javascript">
+            const apiBaseUrl = '@Html.Raw(BaseUrl)';
+            $(document).ready(() => {
+                var connection = new signalR.HubConnectionBuilder().withUrl(apiBaseUrl + "signalrhub").build();
+                $("#connstatus").text(connection.state);
+                connection.start().then(() => {
+                    $("#connstatus").text(connection.state);
+                }).catch((err) => {
+                    console.log(err)
+                });
+                connection.on("ReceiveClientCount", (value) => {
+                    $("#clientCount").text(value);
+                });
+            });
+
+        </script>
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Dynamic Client Count: <strong id="clientCount"></strong></h4>
+    </div>
+</div>
+
+@await Component.InvokeAsync("_UILayoutFooterPartialComponent")
+@await Component.InvokeAsync("_UILayoutScriptPartialComponent")
+</body>
+</html>

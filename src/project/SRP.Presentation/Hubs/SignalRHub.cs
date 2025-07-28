@@ -24,6 +24,8 @@ namespace SRP.Presentation.Hubs;
 
 public class SignalRHub(IMediator mediator) : Hub
 {
+    public static int ClientCount { get; set; }
+
     public async Task SendStatistics()
     {
         await Clients.All.SendAsync("ReceiveStatistics", new Dictionary<string, object>
@@ -71,8 +73,10 @@ public class SignalRHub(IMediator mediator) : Hub
     {
         await Clients.All.SendAsync("ReceiveNotifications", new Dictionary<string, object>
         {
-            ["notificationGetAllCountByStatusFalseQuery"] = await mediator.Send(new NotificationGetAllCountByStatusQuery { Status = false }),
-            ["notificationGetAllByStatusFalseQuery"] = await mediator.Send(new NotificationGetAllByStatusQuery{Status = false}),
+            ["notificationGetAllCountByStatusFalseQuery"] = await mediator.Send(new NotificationGetAllCountByStatusQuery
+                { Status = false }),
+            ["notificationGetAllByStatusFalseQuery"] =
+                await mediator.Send(new NotificationGetAllByStatusQuery { Status = false }),
         });
     }
 
@@ -84,5 +88,20 @@ public class SignalRHub(IMediator mediator) : Hub
     public async Task SendMessage(string user, string message)
     {
         await Clients.All.SendAsync("ReceiveMessage", user, message);
+    }
+
+
+    public override async Task OnConnectedAsync()
+    {
+        ClientCount++;
+        await Clients.All.SendAsync("ReceiveClientCount", ClientCount);
+        await base.OnConnectedAsync();
+    }
+
+    public override async Task OnDisconnectedAsync(Exception? exception)
+    {
+        ClientCount--;
+        await Clients.All.SendAsync("ReceiveClientCount", ClientCount);
+        await base.OnDisconnectedAsync(exception);
     }
 }

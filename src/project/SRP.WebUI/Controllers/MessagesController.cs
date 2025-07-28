@@ -12,6 +12,11 @@ public class MessagesController(JsonService jsonService) : Controller
         return View(await jsonService.GetAsync<ResultMessageDto>(ApiRoutes.Message.GetAll));
     }
 
+    public IActionResult ClientUserCount()
+    {
+        return View();
+    }
+
     public IActionResult Create() => View();
 
     public async Task<IActionResult> Delete(int id)
