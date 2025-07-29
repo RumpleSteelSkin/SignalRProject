@@ -6,7 +6,7 @@ using SRP.Application.Constants;
 
 namespace SRP.Application.Features.Bookings.Commands.Add;
 
-public class BookingAddCommand : IRequest<string>, ITransactional, ILoggableRequest,IRoleExists
+public class BookingAddCommand : IRequest<string>, ITransactional, ILoggableRequest
 {
     public string? Name { get; set; }
     public string? Phone { get; set; }
@@ -14,5 +14,4 @@ public class BookingAddCommand : IRequest<string>, ITransactional, ILoggableRequ
     public string? Description { get; set; }
     public int? PersonCount { get; set; }
     public DateTime Date { get; set; }
-    public string[] Roles => [GeneralOperationClaims.Admin];
 }

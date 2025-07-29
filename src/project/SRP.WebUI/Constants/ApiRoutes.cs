@@ -10,8 +10,8 @@
             public const string Register = $"{Prefix}Register";
             public const string Login = $"{Prefix}Login";
         }
-        
-        
+
+
         public static class Category
         {
             private const string Prefix = $"{BaseUrl}api/Categories/";
@@ -106,6 +106,7 @@
             public const string Delete = $"{Prefix}Delete";
             public const string GetById = $"{Prefix}GetById";
             public const string GetCount = $"{Prefix}GetCount";
+            public const string StatusChangeById = $"{Prefix}StatusChangeById";
         }
 
         public static class Contact
@@ -130,6 +131,8 @@
             public const string Delete = $"{Prefix}Delete";
             public const string GetById = $"{Prefix}GetById";
             public const string GetCount = $"{Prefix}GetCount";
+            public const string StatusChangeById = $"{Prefix}StatusChangeById";
+            public const string GetAllByStatus = $"{Prefix}GetAllByStatus";
         }
 
         public static class Feature

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SRP.Application.Features.Bookings.Commands.Add;
 using SRP.Application.Features.Bookings.Commands.Delete;
+using SRP.Application.Features.Bookings.Commands.StatusChangeById;
 using SRP.Application.Features.Bookings.Commands.Update;
 using SRP.Application.Features.Bookings.Queries.GetAll;
 using SRP.Application.Features.Bookings.Queries.GetById;
@@ -15,6 +16,12 @@ public class BookingsController(IMediator mediator) : ControllerBase
 {
     [HttpPost("Add")]
     public async Task<IActionResult> Add(BookingAddCommand command)
+    {
+        return Ok(await mediator.Send(command));
+    }
+
+    [HttpPost("StatusChangeById")]
+    public async Task<IActionResult> Add(BookingStatusChangeByIdCommand command)
     {
         return Ok(await mediator.Send(command));
     }

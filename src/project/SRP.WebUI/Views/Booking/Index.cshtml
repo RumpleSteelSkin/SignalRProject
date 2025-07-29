@@ -7,9 +7,9 @@
 }
 @await Component.InvokeAsync("_DefaultSignalRScriptsPartialComponent")
 <script type="text/javascript">
-	const baseUrl = '@Html.Raw(BaseUrl)';
+	const apiBaseUrl = '@Html.Raw(BaseUrl)';
 	$(document).ready(() => {
-		var connection = new signalR.HubConnectionBuilder().withUrl(baseUrl + "signalrhub").build();
+		var connection = new signalR.HubConnectionBuilder().withUrl(apiBaseUrl + "signalrhub").build();
 
 		$("#connstatus").text(connection.state);
 
@@ -34,9 +34,10 @@
 							<th scope="col">Description</th>
 							<th scope="col">Person Count</th>
 							<th scope="col">Date</th>
-							<th scope="col">Reservation Status</th>
 							<th scope="col">Delete</th>
 							<th scope="col">Update</th>
+							<th scope="col">Confirm</th>
+							<th scope="col">Cancel</th>
 						</tr>
 					</thead>
 					<tbody>`;
@@ -44,16 +45,17 @@
 			value.forEach((item, index) => {
 				tableHtml += `
 					<tr>
-						<td>${index + 1}</td>
+						<th>${index + 1}</th>
 						<td>${item.name}</td>
 						<td>${item.phone}</td>
 						<td>${item.mail}</td>
 						<td>${item.description}</td>
 						<td>${item.personCount}</td>
 						<td>${item.date}</td>
-						<td>Reservation Accepted</td>
-						<td><a href="/Booking/Delete/${item.bookingid}" class="btn btn-outline-danger">Delete</a></td>
-						<td><a href="/Booking/Update/${item.bookingid}" class="btn btn-outline-success">Update</a></td>
+						<td><a href="/Booking/Delete/${item.id}" class="btn btn-outline-danger">Delete</a></td>
+						<td><a href="/Booking/Update/${item.id}" class="btn btn-outline-success">Update</a></td>
+						<td><a href="/Booking/StatusChangeById/${item.id}?description=Reservation Accepted" class="btn btn-outline-dark">Confirm</a></td>
+						<td><a href="/Booking/StatusChangeById/${item.id}?description=Reservation Canceled" class="btn btn-outline-info">Cancel</a></td>
 					</tr>`;
 			});
 

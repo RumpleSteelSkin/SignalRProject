@@ -7,8 +7,10 @@ using SRP.Application.Features.Contacts.Queries.GetAll;
 using SRP.Application.Features.Contacts.Queries.GetById;
 using SRP.Application.Features.Discounts.Commands.Add;
 using SRP.Application.Features.Discounts.Commands.Delete;
+using SRP.Application.Features.Discounts.Commands.StatusChangeById;
 using SRP.Application.Features.Discounts.Commands.Update;
 using SRP.Application.Features.Discounts.Queries.GetAll;
+using SRP.Application.Features.Discounts.Queries.GetAllByStatus;
 using SRP.Application.Features.Discounts.Queries.GetById;
 using SRP.Application.Features.Discounts.Queries.GetCount;
 
@@ -42,6 +44,12 @@ public class DiscountsController(IMediator mediator) : ControllerBase
         return Ok(await mediator.Send(new DiscountGetAllQuery()));
     }
 
+    [HttpGet("GetAllByStatus")]
+    public async Task<IActionResult> GetAllByStatus(bool status)
+    {
+        return Ok(await mediator.Send(new DiscountGetAllByStatusQuery { Status = status }));
+    }
+
     [HttpGet("GetById")]
     public async Task<IActionResult> GetById(int id)
     {
@@ -52,5 +60,11 @@ public class DiscountsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> GetCount()
     {
         return Ok(await mediator.Send(new DiscountGetCountQuery()));
+    }
+
+    [HttpPost("StatusChangeById")]
+    public async Task<IActionResult> StatusChangeById(DiscountStatusChangeByIdCommand command)
+    {
+        return Ok(await mediator.Send(command));
     }
 }

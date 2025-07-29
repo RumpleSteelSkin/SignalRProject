@@ -25,6 +25,12 @@ public class DiscountController(JsonService jsonService) : Controller
         return View(await jsonService.GetByIdAsync<UpdateDiscountDto>($"{ApiRoutes.Discount.GetById}?id={id}"));
     }
 
+    public async Task<IActionResult> StatusChangeById(StatusChangeByIdDiscountDto dto)
+    {
+        await jsonService.PostAsync(ApiRoutes.Discount.StatusChangeById, dto);
+        return RedirectToAction(nameof(Index));
+    }
+
     [HttpPost]
     public async Task<IActionResult> Create(CreateDiscountDto dto)
     {

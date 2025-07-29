@@ -25,6 +25,12 @@ public class BookingController(JsonService jsonService) : Controller
         return View(await jsonService.GetByIdAsync<UpdateBookingDto>($"{ApiRoutes.Booking.GetById}?id={id}"));
     }
 
+    public async Task<IActionResult> StatusChangeById(StatusChangeByIdBookingDto dto)
+    {
+        await jsonService.PostAsync(ApiRoutes.Booking.StatusChangeById, dto);
+        return RedirectToAction(nameof(Index));
+    }
+
     [HttpPost]
     public async Task<IActionResult> Create(CreateBookingDto dto)
     {
