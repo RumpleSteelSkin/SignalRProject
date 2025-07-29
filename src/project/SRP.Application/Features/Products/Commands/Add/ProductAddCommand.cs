@@ -1,8 +1,12 @@
-﻿using MediatR;
+﻿using Core.Application.Pipelines.Authorization;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transactional;
+using MediatR;
+using SRP.Application.Constants;
 
 namespace SRP.Application.Features.Products.Commands.Add;
 
-public class ProductAddCommand : IRequest<string>
+public class ProductAddCommand : IRequest<string>, ITransactional, ILoggableRequest, IRoleExists
 {
     public required string Name { get; set; }
     public string? Description { get; set; }
@@ -10,4 +14,5 @@ public class ProductAddCommand : IRequest<string>
     public string? ImageUrl { get; set; }
     public bool Status { get; set; }
     public int CategoryID { get; set; }
+    public string[] Roles => [GeneralOperationClaims.Admin];
 }

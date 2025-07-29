@@ -1,10 +1,15 @@
-﻿using MediatR;
+﻿using Core.Application.Pipelines.Authorization;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transactional;
+using MediatR;
+using SRP.Application.Constants;
 
 namespace SRP.Application.Features.Features.Commands.Update;
 
-public class FeatureUpdateCommand : IRequest<string>
+public class FeatureUpdateCommand : IRequest<string>, ITransactional, ILoggableRequest, IRoleExists
 {
     public int Id { get; set; }
     public string? Title { get; set; }
     public string? Description { get; set; }
+    public string[] Roles => [GeneralOperationClaims.Admin];
 }

@@ -1,11 +1,16 @@
-﻿using MediatR;
+﻿using Core.Application.Pipelines.Authorization;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transactional;
+using MediatR;
+using SRP.Application.Constants;
 
 namespace SRP.Application.Features.Testimonials.Commands.Add;
 
-public class TestimonialAddCommand : IRequest<string>
+public class TestimonialAddCommand : IRequest<string>, ITransactional, ILoggableRequest, IRoleExists
 {
     public string? Name { get; set; }
     public string? Title { get; set; }
     public string? Comment { get; set; }
     public string? ImageUrl { get; set; }
+    public string[] Roles => [GeneralOperationClaims.Admin];
 }

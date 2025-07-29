@@ -1,8 +1,12 @@
-﻿using MediatR;
+﻿using Core.Application.Pipelines.Authorization;
+using Core.Application.Pipelines.Logging;
+using Core.Application.Pipelines.Transactional;
+using MediatR;
+using SRP.Application.Constants;
 
 namespace SRP.Application.Features.Contacts.Commands.Add;
 
-public class ContactAddCommand : IRequest<string>
+public class ContactAddCommand : IRequest<string>, ITransactional, ILoggableRequest,IRoleExists
 {
     public string? Location { get; set; }
     public string? Phone { get; set; }
@@ -12,4 +16,5 @@ public class ContactAddCommand : IRequest<string>
     public string? OpenDays { get; set; }
     public string? OpenDaysDescription { get; set; }
     public string? OpenHours { get; set; }
+    public string[] Roles => [GeneralOperationClaims.Admin];
 }

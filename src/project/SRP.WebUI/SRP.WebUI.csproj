@@ -15,10 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Pages\Shared\Components\"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <AdditionalFiles Include="Views\MenuTables\Create.cshtml"/>
         <AdditionalFiles Include="Views\MenuTables\Index.cshtml"/>
         <AdditionalFiles Include="Views\MenuTables\Update.cshtml"/>

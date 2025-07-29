@@ -36,6 +36,6 @@ public class LoginController(IHttpClientFactory httpClientFactory, IHttpContextA
         });
 
 
-        return RedirectToAction("Index");
+        return RedirectToAction("Index","Default");
     }
 }
