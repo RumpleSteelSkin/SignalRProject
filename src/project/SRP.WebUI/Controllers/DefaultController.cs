@@ -1,8 +1,13 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SRP.WebUI.Constants;
+using SRP.WebUI.Dtos.Message;
+using SRP.WebUI.Hooks.Jsons;
 
 namespace SRP.WebUI.Controllers
 {
-    public class DefaultController : Controller
+    [AllowAnonymous]
+    public class DefaultController(JsonService jsonService) : Controller
     {
         // GET: DefaultController
         public ActionResult Index()
@@ -10,5 +15,17 @@ namespace SRP.WebUI.Controllers
             return View();
         }
 
+        [HttpGet]
+        public PartialViewResult SendMessages()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendMessages(CreateMessageDto dto)
+        {
+            await jsonService.PostAsync(ApiRoutes.Message.Add, dto);
+            return RedirectToAction("Index");
+        }
     }
 }

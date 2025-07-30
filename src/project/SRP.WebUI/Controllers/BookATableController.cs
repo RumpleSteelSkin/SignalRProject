@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SRP.WebUI.Constants;
 using SRP.WebUI.Dtos.Booking;
 using SRP.WebUI.Hooks.Jsons;
 
 namespace SRP.WebUI.Controllers;
 
+[AllowAnonymous]
 public class BookATableController(JsonService jsonService) : Controller
 {
     [HttpGet]
@@ -17,6 +19,6 @@ public class BookATableController(JsonService jsonService) : Controller
     public async Task<IActionResult> Index(CreateBookingDto dto)
     {
         await jsonService.PostAsync(ApiRoutes.Booking.Add, dto);
-        return RedirectToAction("Index","Default");
+        return RedirectToAction("Index", "Default");
     }
 }

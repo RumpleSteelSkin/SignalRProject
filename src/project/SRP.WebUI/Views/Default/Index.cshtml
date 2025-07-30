@@ -5,5 +5,6 @@
 @await Component.InvokeAsync("_DefaultOfferPartialComponent")
 @await Component.InvokeAsync("_DefaultOurMenuPartialComponent")
 @await Component.InvokeAsync("_DefaultAboutPartialComponent")
-@await Component.InvokeAsync("_DefaultBookATablePartialComponent")
+@* @await Component.InvokeAsync("_DefaultBookATablePartialComponent") *@
+@await Html.PartialAsync("SendMessages");
 @await Component.InvokeAsync("_DefaultTestimonialPartialComponent")

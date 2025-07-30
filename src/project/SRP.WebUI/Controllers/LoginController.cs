@@ -1,13 +1,15 @@
 ﻿using Core.CrossCuttingConcerns.Exceptions.ExceptionTypes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SRP.WebUI.Constants;
 using SRP.WebUI.Dtos.Identity;
 
 namespace SRP.WebUI.Controllers;
-
+[AllowAnonymous]
 public class LoginController(IHttpClientFactory httpClientFactory, IHttpContextAccessor httpContextAccessor)
     : Controller
 {
+    
     [HttpGet]
     public IActionResult Index()
     {
