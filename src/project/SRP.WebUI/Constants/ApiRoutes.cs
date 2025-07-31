@@ -4,6 +4,12 @@
     {
         public const string BaseUrl = "http://localhost:5161/";
 
+        public static class Mail
+        {
+            private const string Prefix = $"{BaseUrl}api/Mails/";
+            public const string SendMail = $"{Prefix}SendMail";
+        }
+
         public static class Auth
         {
             private const string Prefix = $"{BaseUrl}api/Authentications/";
