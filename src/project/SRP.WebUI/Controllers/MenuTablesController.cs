@@ -9,7 +9,7 @@ public class MenuTablesController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultMenuTableDto>(ApiRoutes.MenuTable.GetAll));
+        return View(await jsonService.GetAllAsync<ResultMenuTableDto>(ApiRoutes.MenuTable.GetAll));
     }
 
     public IActionResult Create() => View();
@@ -42,6 +42,6 @@ public class MenuTablesController(JsonService jsonService) : Controller
     [HttpGet]
     public async Task<IActionResult> TableListByStatus()
     {
-        return View(await jsonService.GetAsync<ResultMenuTableDto>(ApiRoutes.MenuTable.GetAll));
+        return View(await jsonService.GetAllAsync<ResultMenuTableDto>(ApiRoutes.MenuTable.GetAll));
     }
 }

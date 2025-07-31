@@ -13,8 +13,8 @@ public class _UILayoutFooterPartialComponent(JsonService jsonService) : ViewComp
     {
         return View(new ContactWithSocialViewModel
         {
-            Contacts = await jsonService.GetAsync<ResultContactDto>(ApiRoutes.Contact.GetAll),
-            SocialMedias = await jsonService.GetAsync<ResultSocialMediaDto>(ApiRoutes.SocialMedia.GetAll)
+            Contacts = await jsonService.GetAllAsync<ResultContactDto>(ApiRoutes.Contact.GetAll),
+            SocialMedias = await jsonService.GetAllAsync<ResultSocialMediaDto>(ApiRoutes.SocialMedia.GetAll)
         });
     }
 }

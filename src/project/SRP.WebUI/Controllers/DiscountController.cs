@@ -9,7 +9,7 @@ public class DiscountController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultDiscountDto>(ApiRoutes.Discount.GetAll));
+        return View(await jsonService.GetAllAsync<ResultDiscountDto>(ApiRoutes.Discount.GetAll));
     }
 
     public IActionResult Create() => View();

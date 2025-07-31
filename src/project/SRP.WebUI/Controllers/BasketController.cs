@@ -12,7 +12,7 @@ public class BasketController(JsonService jsonService) : Controller
     public async Task<IActionResult> Index()
     {
         return View(
-            await jsonService.GetAsync<ResultBasketDto>($"{ApiRoutes.Basket.GetByMenuTableNumber}?menuTableId={3}"));
+            await jsonService.GetAllAsync<ResultBasketDto>($"{ApiRoutes.Basket.GetByMenuTableNumber}?menuTableId={3}"));
     }
 
     public IActionResult Create() => View();

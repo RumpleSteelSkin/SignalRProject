@@ -9,7 +9,7 @@ public class BookingController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultBookingDto>(ApiRoutes.Booking.GetAll));
+        return View(await jsonService.GetAllAsync<ResultBookingDto>(ApiRoutes.Booking.GetAll));
     }
 
     public IActionResult Create() => View();

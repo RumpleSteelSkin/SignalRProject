@@ -11,21 +11,33 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7"/>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="System.Drawing.Common" Version="10.0.0-preview.6.25358.103" />
     </ItemGroup>
 
     <ItemGroup>
-        <AdditionalFiles Include="Views\MenuTables\Create.cshtml"/>
-        <AdditionalFiles Include="Views\MenuTables\Index.cshtml"/>
-        <AdditionalFiles Include="Views\MenuTables\Update.cshtml"/>
-        <AdditionalFiles Include="Views\Notifications\Create.cshtml"/>
-        <AdditionalFiles Include="Views\Notifications\Index.cshtml"/>
-        <AdditionalFiles Include="Views\Notifications\Update.cshtml"/>
+        <AdditionalFiles Include="Views\MenuTables\Create.cshtml" />
+        <AdditionalFiles Include="Views\MenuTables\Index.cshtml" />
+        <AdditionalFiles Include="Views\MenuTables\Update.cshtml" />
+        <AdditionalFiles Include="Views\Notifications\Create.cshtml" />
+        <AdditionalFiles Include="Views\Notifications\Index.cshtml" />
+        <AdditionalFiles Include="Views\Notifications\Update.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\SRP.Persistence\SRP.Persistence.csproj"/>
+        <ProjectReference Include="..\SRP.Persistence\SRP.Persistence.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="QRCoder">
+        <HintPath>\Extensions\Dlls\QRCoder.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Extensions\Dlls\" />
+      <Folder Include="Pages\" />
     </ItemGroup>
 
 </Project>

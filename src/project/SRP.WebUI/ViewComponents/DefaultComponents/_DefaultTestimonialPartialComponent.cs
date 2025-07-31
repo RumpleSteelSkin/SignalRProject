@@ -9,6 +9,6 @@ public class _DefaultTestimonialPartialComponent(JsonService jsonService) : View
 {
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        return View(await jsonService.GetAsync<ResultTestimonialDto>(ApiRoutes.Testimonial.GetAll));
+        return View(await jsonService.GetAllAsync<ResultTestimonialDto>(ApiRoutes.Testimonial.GetAll));
     }
 }

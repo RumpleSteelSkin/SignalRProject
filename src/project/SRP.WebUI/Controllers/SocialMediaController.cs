@@ -9,7 +9,7 @@ public class SocialMediaController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultSocialMediaDto>(ApiRoutes.SocialMedia.GetAll));
+        return View(await jsonService.GetAllAsync<ResultSocialMediaDto>(ApiRoutes.SocialMedia.GetAll));
     }
 
     public IActionResult Create() => View();

@@ -9,7 +9,7 @@ public class NotificationsController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultNotificationDto>(ApiRoutes.Notification.GetAll));
+        return View(await jsonService.GetAllAsync<ResultNotificationDto>(ApiRoutes.Notification.GetAll));
     }
 
     public IActionResult Create() => View();

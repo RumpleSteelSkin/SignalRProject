@@ -9,6 +9,11 @@
             private const string Prefix = $"{BaseUrl}api/Authentications/";
             public const string Register = $"{Prefix}Register";
             public const string Login = $"{Prefix}Login";
+            public const string GetUsersByRoleId = $"{Prefix}GetUsersByRoleId";
+            public const string GetAllUsers = $"{Prefix}GetAllUsers";
+            public const string GetCurrentUser = $"{Prefix}GetCurrentUser";
+            public const string GetUserById = $"{Prefix}GetUserById";
+            public const string UpdateUser = $"{Prefix}UpdateUser";
         }
 
 

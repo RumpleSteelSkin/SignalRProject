@@ -9,7 +9,7 @@ public class FeatureController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultFeatureDto>(ApiRoutes.Feature.GetAll));
+        return View(await jsonService.GetAllAsync<ResultFeatureDto>(ApiRoutes.Feature.GetAll));
     }
 
     public IActionResult Create() => View();

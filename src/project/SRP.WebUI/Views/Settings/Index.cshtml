@@ -1,0 +1,79 @@
+﻿@model UserEditDto
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Profile Settings</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Password and Info Update Page</div>
+                        </div>
+                        <div class="card-body">
+                            <input type="hidden" asp-for="Id"/>
+                            <div class="form-group">
+                                <label for="Username">Username</label>
+                                <input type="text" class="form-control" id="Username" asp-for="Username"
+                                       placeholder="Enter Username">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Name">Name</label>
+                                <input type="text" class="form-control" id="Name" asp-for="Name"
+                                       placeholder="Enter Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Surname">Surname</label>
+                                <input type="text" class="form-control" id="Surname" asp-for="Surname"
+                                       placeholder="Enter Surname">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Mail">Mail</label>
+                                <input type="email" class="form-control" id="Mail" asp-for="Mail"
+                                       placeholder="Enter Mail">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Password">Password</label>
+                                <input type="password" class="form-control" id="Password" asp-for="Password"
+                                       placeholder="Enter Password">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ConfirmPassword">Confirm Password</label>
+                                <input type="password" class="form-control" id="ConfirmPassword"
+                                       placeholder="Enter Confirm Password">
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-primary" id="updateButton" disabled>Update Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const passwordInput = document.getElementById('Password');
+    const confirmPasswordInput = document.getElementById('ConfirmPassword');
+    const updateButton = document.getElementById('updateButton');
+
+    function validatePasswords() {
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+        updateButton.disabled = !(password && confirmPassword && password === confirmPassword);
+    }
+    passwordInput.addEventListener('input', validatePasswords);
+    confirmPasswordInput.addEventListener('input', validatePasswords);
+</script>

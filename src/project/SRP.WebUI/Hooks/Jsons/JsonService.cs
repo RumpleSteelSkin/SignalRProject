@@ -19,13 +19,22 @@ public class JsonService(IHttpClientFactory factory, IHttpContextAccessor httpCo
         }
     }
 
-    public async Task<ICollection<T>?> GetAsync<T>(string url)
+    public async Task<ICollection<T>?> GetAllAsync<T>(string url)
     {
         AddJwtTokenHeader();
         var response = await _client.GetAsync(url);
         if (!response.IsSuccessStatusCode) return null;
         var content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<ICollection<T>>(content);
+    }
+
+    public async Task<T?> GetAsync<T>(string url)
+    {
+        AddJwtTokenHeader();
+        var response = await _client.GetAsync(url);
+        if (!response.IsSuccessStatusCode) return default;
+        var content = await response.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<T>(content);
     }
 
     public async Task FireAndForgetPutAsync<TRequest>(string url, TRequest data)
@@ -106,7 +115,7 @@ public class JsonService(IHttpClientFactory factory, IHttpContextAccessor httpCo
     public async Task<List<SelectListItem>> GetSelectListAsync<T>(string url, Func<T, string?> textSelector,
         Func<T, string?> valueSelector)
     {
-        var data = await GetAsync<T>(url);
+        var data = await GetAllAsync<T>(url);
         if (data == null) return [];
         return data.Select(item => new SelectListItem { Text = textSelector(item), Value = valueSelector(item) })
             .ToList();

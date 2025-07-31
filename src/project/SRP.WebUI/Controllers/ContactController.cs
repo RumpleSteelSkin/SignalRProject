@@ -9,7 +9,7 @@ public class ContactController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultContactDto>(ApiRoutes.Contact.GetAll));
+        return View(await jsonService.GetAllAsync<ResultContactDto>(ApiRoutes.Contact.GetAll));
     }
 
     public IActionResult Create() => View();

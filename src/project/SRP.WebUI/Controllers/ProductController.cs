@@ -11,7 +11,7 @@ public class ProductController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultProductDto>(ApiRoutes.Product.GetAllWithCategoryName));
+        return View(await jsonService.GetAllAsync<ResultProductDto>(ApiRoutes.Product.GetAllWithCategoryName));
     }
 
     public async Task<IActionResult> Create()

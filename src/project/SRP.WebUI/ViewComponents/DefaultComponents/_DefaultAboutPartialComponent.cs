@@ -9,6 +9,6 @@ public class _DefaultAboutPartialComponent(JsonService jsonService) : ViewCompon
 {
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        return View(await jsonService.GetAsync<ResultAboutDto>(ApiRoutes.About.GetAll));
+        return View(await jsonService.GetAllAsync<ResultAboutDto>(ApiRoutes.About.GetAll));
     }
 }

@@ -9,6 +9,6 @@ public class _DefaultOfferPartialComponent (JsonService jsonService) :ViewCompon
 {
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        return View(await jsonService.GetAsync<ResultDiscountDto>($"{ApiRoutes.Discount.GetAllByStatus}?status={true}"));
+        return View(await jsonService.GetAllAsync<ResultDiscountDto>($"{ApiRoutes.Discount.GetAllByStatus}?status={true}"));
     }
 }

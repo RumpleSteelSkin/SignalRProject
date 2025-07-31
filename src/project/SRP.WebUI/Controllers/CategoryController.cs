@@ -9,7 +9,7 @@ public class CategoryController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultCategoryDto>(ApiRoutes.Category.GetAll));
+        return View(await jsonService.GetAllAsync<ResultCategoryDto>(ApiRoutes.Category.GetAll));
     }
 
     public IActionResult Create() => View();

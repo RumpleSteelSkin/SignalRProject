@@ -9,7 +9,7 @@ public class MessagesController(JsonService jsonService) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        return View(await jsonService.GetAsync<ResultMessageDto>(ApiRoutes.Message.GetAll));
+        return View(await jsonService.GetAllAsync<ResultMessageDto>(ApiRoutes.Message.GetAll));
     }
 
     public IActionResult ClientUserCount()

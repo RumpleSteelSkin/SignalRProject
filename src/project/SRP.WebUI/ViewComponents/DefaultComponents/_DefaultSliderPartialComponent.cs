@@ -9,6 +9,6 @@ public class _DefaultSliderPartialComponent(JsonService jsonService) : ViewCompo
 {
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        return View(await jsonService.GetAsync<ResultFeatureDto>(ApiRoutes.Feature.GetAll));
+        return View(await jsonService.GetAllAsync<ResultFeatureDto>(ApiRoutes.Feature.GetAll));
     }
 }
