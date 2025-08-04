@@ -21,6 +21,15 @@ public static class AppRegistration
         #endregion
 
         #region Endpoints
+        app.UseStatusCodePages(x =>
+        {
+            if (x.HttpContext.Response.StatusCode == 404)
+            {
+                x.HttpContext.Response.Redirect($"/Error/NotFound404Page/");
+            }
+            return Task.CompletedTask;
+        });
+        
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Product}/{action=Index}/{id?}");

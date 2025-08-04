@@ -7,6 +7,7 @@ using SRP.Application.Features.Categories.Queries.GetPassiveCount;
 using SRP.Application.Features.MenuTables.Queries.GetAll;
 using SRP.Application.Features.MenuTables.Queries.GetCount;
 using SRP.Application.Features.MoneyCases.Queries.GetTotalPrice;
+using SRP.Application.Features.Notifications.Queries.GetAll;
 using SRP.Application.Features.Notifications.Queries.GetAllByStatus;
 using SRP.Application.Features.Notifications.Queries.GetAllCountByStatus;
 using SRP.Application.Features.Orders.Queries.GetActiveCount;
@@ -61,6 +62,9 @@ public class SignalRHub(IMediator mediator) : Hub
             ["moneyCaseGetTotalPriceQuery"] = $"{await mediator.Send(new MoneyCaseGetTotalPriceQuery()):0.00} ₺",
             ["orderGetActiveCountQuery"] = await mediator.Send(new OrderGetActiveCountQuery()),
             ["menuTableGetCountQuery"] = await mediator.Send(new MenuTableGetCountQuery()),
+            ["menuTableGetAllQuery"] = await mediator.Send(new MenuTableGetAllQuery()),
+            ["notificationGetAllQuery"] = await mediator.Send(new NotificationGetAllQuery()),
+            ["bookingGetAllQuery"]=await mediator.Send(new BookingGetAllQuery())
         });
     }
 
