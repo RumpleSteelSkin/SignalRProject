@@ -28,7 +28,7 @@ public class TestimonialController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Create(CreateTestimonialDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Testimonial.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.Testimonial.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

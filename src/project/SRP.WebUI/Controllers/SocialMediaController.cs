@@ -28,7 +28,7 @@ public class SocialMediaController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Create(CreateSocialMediaDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.SocialMedia.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.SocialMedia.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

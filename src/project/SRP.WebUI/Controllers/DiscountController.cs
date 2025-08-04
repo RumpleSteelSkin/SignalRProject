@@ -27,14 +27,14 @@ public class DiscountController(JsonService jsonService) : Controller
 
     public async Task<IActionResult> StatusChangeById(StatusChangeByIdDiscountDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Discount.StatusChangeById, dto);
+        await jsonService.PostAsync(ApiRoutes.Discount.StatusChangeById, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 
     [HttpPost]
     public async Task<IActionResult> Create(CreateDiscountDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Discount.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.Discount.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

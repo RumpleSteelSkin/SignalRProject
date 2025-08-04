@@ -28,7 +28,7 @@ public class AboutController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Create(CreateAboutDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.About.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.About.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

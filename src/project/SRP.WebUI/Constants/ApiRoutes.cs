@@ -88,6 +88,7 @@
             public const string GetAll = $"{Prefix}GetAll";
             public const string Add = $"{Prefix}Add";
             public const string Update = $"{Prefix}Update";
+            public const string UpdateState = $"{Prefix}UpdateState";
             public const string Delete = $"{Prefix}Delete";
             public const string GetById = $"{Prefix}GetById";
             public const string GetCount = $"{Prefix}GetCount";

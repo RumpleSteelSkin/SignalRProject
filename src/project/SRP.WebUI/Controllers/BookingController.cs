@@ -27,14 +27,14 @@ public class BookingController(JsonService jsonService) : Controller
 
     public async Task<IActionResult> StatusChangeById(StatusChangeByIdBookingDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Booking.StatusChangeById, dto);
+        await jsonService.PostAsync(ApiRoutes.Booking.StatusChangeById, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 
     [HttpPost]
     public async Task<IActionResult> Create(CreateBookingDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Booking.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.Booking.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

@@ -33,7 +33,7 @@ public class MessagesController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Create(CreateMessageDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Message.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.Message.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

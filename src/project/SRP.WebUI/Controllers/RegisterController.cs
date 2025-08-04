@@ -18,7 +18,7 @@ public class RegisterController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Index(RegisterDto registerDto)
     {
-        await jsonService.PostAsync(ApiRoutes.Auth.Register, registerDto);
+        await jsonService.PostAsync(ApiRoutes.Auth.Register, registerDto, ModelState);
         return View();
     }
 }

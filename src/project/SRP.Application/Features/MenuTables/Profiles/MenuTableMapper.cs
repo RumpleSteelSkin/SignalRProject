@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SRP.Application.Features.MenuTables.Commands.Add;
 using SRP.Application.Features.MenuTables.Commands.Update;
+using SRP.Application.Features.MenuTables.Commands.UpdateState;
 using SRP.Application.Features.MenuTables.Queries.GetAll;
 using SRP.Application.Features.MenuTables.Queries.GetById;
 using SRP.Domain.Models;
@@ -13,6 +14,7 @@ public class MenuTableMapper : Profile
     {
         CreateMap<MenuTableAddCommand, MenuTable>();
         CreateMap<MenuTableUpdateCommand, MenuTable>();
+        CreateMap<MenuTableUpdateStateCommand, MenuTable>();
         CreateMap<MenuTable, MenuTableGetAllQueryResponseDto>();
         CreateMap<MenuTable, MenuTableGetByIdQueryResponseDto>();
     }

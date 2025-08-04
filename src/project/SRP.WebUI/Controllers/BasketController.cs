@@ -9,10 +9,10 @@ namespace SRP.WebUI.Controllers;
 [AllowAnonymous]
 public class BasketController(JsonService jsonService) : Controller
 {
-    public async Task<IActionResult> Index()
+    [HttpGet]
+    public async Task<IActionResult> Index(int id)
     {
-        return View(
-            await jsonService.GetAllAsync<ResultBasketDto>($"{ApiRoutes.Basket.GetByMenuTableNumber}?menuTableId={3}"));
+        return View(await jsonService.GetAllAsync<ResultBasketDto>($"{ApiRoutes.Basket.GetByMenuTableNumber}?menuTableId={id}"));
     }
 
     public IActionResult Create() => View();
@@ -31,7 +31,7 @@ public class BasketController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Create(CreateBasketDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Basket.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.Basket.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

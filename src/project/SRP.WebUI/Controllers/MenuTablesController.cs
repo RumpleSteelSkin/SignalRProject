@@ -28,7 +28,7 @@ public class MenuTablesController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Create(CreateMenuTableDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.MenuTable.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.MenuTable.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

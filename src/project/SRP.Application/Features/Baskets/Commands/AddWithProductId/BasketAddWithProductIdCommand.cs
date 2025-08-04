@@ -7,4 +7,5 @@ namespace SRP.Application.Features.Baskets.Commands.AddWithProductId;
 public class BasketAddWithProductIdCommand : IRequest<string>, ITransactional, ILoggableRequest
 {
     public int ProductId { get; set; }
+    public int MenuTableId { get; set; }
 }

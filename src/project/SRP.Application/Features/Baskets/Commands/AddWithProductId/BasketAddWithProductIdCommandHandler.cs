@@ -15,7 +15,7 @@ public class BasketAddWithProductIdCommandHandler(
         await basketRepository.AddAsync(new Basket()
         {
             Count = 1,
-            MenuTableID = 3,
+            MenuTableID = request.MenuTableId,
             Status = true,
             Price = product!.Price,
             ProductID = product.Id,

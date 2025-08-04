@@ -35,7 +35,7 @@ public class NotificationsController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Create(CreateNotificationDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Notification.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.Notification.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

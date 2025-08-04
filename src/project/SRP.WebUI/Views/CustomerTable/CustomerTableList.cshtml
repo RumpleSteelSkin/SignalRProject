@@ -1,0 +1,76 @@
+﻿@model ICollection<ResultMenuTableDto>
+@{
+    ViewBag.Title = "title";
+    Layout = null;
+    string color = "";
+    string status = "";
+}
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/menutable.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+@await Component.InvokeAsync("_UILayoutHeaderPartialComponent")
+<body>
+@await Component.InvokeAsync("_UILayoutNavbarPartialComponent")
+<br/><br/>
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-dark mb-30">
+                <a class="breadcrumb-item text-white" href="/Default/Index">Home</a>
+                <a class="breadcrumb-item text-white" href="/Menu/Index">Table List</a>
+                <span class="breadcrumb-item active">Select Table</span>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        @foreach (var item in Model)
+        {
+            if (item.Status == true)
+            {
+                color = "#2ecc71";
+                status = "Table Full";
+            }
+            else
+            {
+                color = "orangered";
+                status = "Table Empty";
+            }
+
+            <div class="col-md-3 mb-4">
+                <div class="widget" style="background-color:@color !important; ">
+                    @if (@item.Status == true)
+                    {
+                        <div class="widget-icon">
+                            <a href="/Basket/Index/@item.Id"> <i class="fa-solid fa-cash-register"
+                                                                 style="color:@color !important; "></i></a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="widget-icon">
+                            <a href="/Menu/Index/@item.Id"><i class="fas fa-chair"
+                                                              style="color:@color !important; "></i></a>
+                        </div>
+                    }
+                    <div class="widget-text">
+                        <h3>@item.Name</h3>
+                        <p>@status</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@await Component.InvokeAsync("_UILayoutFooterPartialComponent")
+@await Component.InvokeAsync("_UILayoutScriptPartialComponent")
+
+<script src="/feane/js/sweetalert2.js"></script>
+</body>
+</html>

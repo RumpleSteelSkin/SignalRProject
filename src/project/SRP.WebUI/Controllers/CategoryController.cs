@@ -29,7 +29,7 @@ public class CategoryController(JsonService jsonService) : Controller
     public async Task<IActionResult> Create(CreateCategoryDto dto)
     {
         dto.Status = true;
-        await jsonService.PostAsync(ApiRoutes.Category.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.Category.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

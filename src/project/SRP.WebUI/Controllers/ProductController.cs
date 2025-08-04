@@ -39,7 +39,7 @@ public class ProductController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Create(CreateProductDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Product.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.Product.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

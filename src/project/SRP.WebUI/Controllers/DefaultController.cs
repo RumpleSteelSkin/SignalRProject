@@ -24,7 +24,7 @@ namespace SRP.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> SendMessages(CreateMessageDto dto)
         {
-            await jsonService.PostAsync(ApiRoutes.Message.Add, dto);
+            await jsonService.PostAsync(ApiRoutes.Message.Add, dto, ModelState);
             return RedirectToAction("Index");
         }
     }

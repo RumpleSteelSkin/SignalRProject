@@ -1,8 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net;
+using Newtonsoft.Json;
 using System.Text;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using SRP.WebUI.Dtos.Validation;
 
 namespace SRP.WebUI.Hooks.Jsons;
 
@@ -60,17 +63,35 @@ public class JsonService(IHttpClientFactory factory, IHttpContextAccessor httpCo
         return JsonConvert.DeserializeObject<ICollection<T>>(content);
     }
 
-    public async Task PostAsync<TRequest>(string url, TRequest data)
+    //ModelState => FluentValidation Response
+    public async Task<bool> PostAsync<TRequest>(string url, TRequest data, ModelStateDictionary modelState)
     {
         AddJwtTokenHeader();
         var jsonData = JsonConvert.SerializeObject(data);
         var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
         var response = await _client.PostAsync(url, content);
-        if (!response.IsSuccessStatusCode)
+
+        if (response.IsSuccessStatusCode)
+            return true;
+
+        if (response.StatusCode == HttpStatusCode.BadRequest)
         {
             var errorContent = await response.Content.ReadAsStringAsync();
-            throw new Exception($"API error: {response.StatusCode} - {errorContent}");
+            var validationErrors = JsonConvert.DeserializeObject<FluentValidationErrorResponse>(errorContent);
+
+            if (validationErrors?.Errors == null) return false;
+            foreach (var error in validationErrors.Errors)
+            {
+                foreach (var msg in error.Errors!)
+                {
+                    modelState.AddModelError(error.Property!, msg);
+                }
+            }
+
+            return false;
         }
+
+        throw new Exception($"API error: {response.StatusCode}");
     }
 
     public async Task DeleteAsync(string url, int id)

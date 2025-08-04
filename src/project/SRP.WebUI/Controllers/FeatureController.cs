@@ -28,7 +28,7 @@ public class FeatureController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Create(CreateFeatureDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Feature.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.Feature.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

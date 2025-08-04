@@ -7,6 +7,7 @@
 <body>
 @await Component.InvokeAsync("_UILayoutNavbarPartialComponent")
 <br/> <br/>
+<input type="hidden" id="tableId" value="@ViewBag.TableId"/>
 <section class="food_section layout_padding-bottom">
   <div class="container">
     <div class="heading_container heading_center">
@@ -119,13 +120,14 @@
 <script>
   function showproductid(value) {
     var id = value;
+    var menuTableId = $("#tableId").val(); // ← ViewBag'den gelen değer
+
     $.ajax({
       type: 'post',
-      data: {item: id},
-      url: "/Menu/AddBasket/" + id,
-      contentType: 'application/json',
+      url: "/Menu/AddBasket/",
+      data: { id: id, menuTableId: menuTableId },
       success: function () {
-        swal("Product ID: " + id, "Your choice added basket!", "success");
+        swal("Product ID: " + id, "Your choice added to basket!", "success");
       }
     });
   }

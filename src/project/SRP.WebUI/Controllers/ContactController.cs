@@ -28,7 +28,7 @@ public class ContactController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Create(CreateContactDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Contact.Add, dto);
+        await jsonService.PostAsync(ApiRoutes.Contact.Add, dto, ModelState);
         return RedirectToAction(nameof(Index));
     }
 

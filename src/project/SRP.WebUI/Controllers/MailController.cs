@@ -16,7 +16,7 @@ namespace SRP.WebUI.Controllers
         [HttpPost]
         public async Task<ActionResult> Index(CreateMailDto dto)
         {
-            await jsonService.PostAsync(ApiRoutes.Mail.SendMail, dto);
+            await jsonService.PostAsync(ApiRoutes.Mail.SendMail, dto, ModelState);
             return RedirectToAction("Index", "Mail");
         }
     }

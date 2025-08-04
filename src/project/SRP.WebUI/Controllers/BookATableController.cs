@@ -18,7 +18,8 @@ public class BookATableController(JsonService jsonService) : Controller
     [HttpPost]
     public async Task<IActionResult> Index(CreateBookingDto dto)
     {
-        await jsonService.PostAsync(ApiRoutes.Booking.Add, dto);
+        if (!await jsonService.PostAsync(ApiRoutes.Booking.Add, dto, ModelState))
+            return View(dto);
         return RedirectToAction("Index", "Default");
     }
 }
