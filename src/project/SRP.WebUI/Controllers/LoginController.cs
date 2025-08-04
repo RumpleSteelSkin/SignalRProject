@@ -5,11 +5,11 @@ using SRP.WebUI.Constants;
 using SRP.WebUI.Dtos.Identity;
 
 namespace SRP.WebUI.Controllers;
+
 [AllowAnonymous]
 public class LoginController(IHttpClientFactory httpClientFactory, IHttpContextAccessor httpContextAccessor)
     : Controller
 {
-    
     [HttpGet]
     public IActionResult Index()
     {
@@ -38,6 +38,12 @@ public class LoginController(IHttpClientFactory httpClientFactory, IHttpContextA
         });
 
 
-        return RedirectToAction("Index","Default");
+        return RedirectToAction("Index", "Default");
+    }
+
+    public IActionResult Logout()
+    {
+        Response.Cookies.Delete("access_token"); //Blacklist DB_..._? 
+        return RedirectToAction("Index", "Default");
     }
 }
