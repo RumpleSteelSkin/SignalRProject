@@ -1,6 +1,6 @@
 # 🍽️ SRP (SignalR Restaurant Project)
 
-**SRP** is a comprehensive multi-layered web application developed with **.NET 8**, providing features such as menu management, real-time booking updates, order processing, live notifications, and API integrations. It leverages modern technologies like **SignalR**, **JWT Authentication**, **Entity Framework Core**, **Redis Caching**, and more.
+**SRP** is a comprehensive multi-layered web application developed with **.NET 8**, providing features such as menu management, real-time booking updates, order processing, live notifications, and API integrations. It leverages modern technologies like **SignalR**, **JWT Authentication**, **Entity Framework Core**, and more.
 
 ---
 
@@ -9,14 +9,12 @@
 - 🔐 **JWT Cookie Authentication** for secure login/logout
 - 📡 **SignalR** for real-time updates (user count, reservations, statistics)
 - 📊 Dynamic statistics and live dashboard
-- 🧾 Basket and Order management system
 - 📩 Email sending functionality using `MailKit`
-- 🖼️ QR code generation for authentication
+- 🖼️ QR code generation
 - 🌍 Recipe fetching from **Tasty RapidAPI**
 - 🧑‍💼 Admin panel with full CRUD operations
 - 🧠 Clean layered architecture with **MediatR** and CQRS
 - 🧹 Centralized error handling, logging, and caching mechanisms
-- 🧰 Use of raw SQL triggers and stored procedures
 - 🧪 Input validation using **FluentValidation**
 - 📦 Configurable settings and environment support
 
@@ -33,7 +31,6 @@
 | **Validation**       | FluentValidation                                                                         |
 | **Logging**          | Serilog (File + MSSQL sinks)                                                             |
 | **Mailing**          | MailKit via `NETCore.MailKit`                                                            |
-| **Caching**          | Redis via `Microsoft.Extensions.Caching.StackExchangeRedis`                              |
 | **API Integration**  | Tasty RapidAPI                                                                           |
 | **Object Mapping**   | AutoMapper                                                                               |
 
